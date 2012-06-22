@@ -1,0 +1,20 @@
+/* Hoja de estilo para  inventario.html */
+
+
+body{
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+table{
+	font-size:13px;
+	border:0;
+}
+td{
+	border:0;
+	padding-bottom:10px;
+}
+input{
+	width:230px;
+}
+.asterisco{
+	color:red;
+}

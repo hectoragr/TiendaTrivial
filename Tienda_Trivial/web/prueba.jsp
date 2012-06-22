@@ -20,7 +20,7 @@
         <p> prueba de ultratumba </p>
         hola erasmo
         
-        <h1> ESTA ES UNA PRUEBA <h1>
+        <h1> ESTA ES UNA PRUEBA </h1>
         
     </body>
 </html>

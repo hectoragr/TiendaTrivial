@@ -24,5 +24,10 @@
 		<li><a href="adminusers.jsp">Admin Usuarios</a></li>
 	</ul>
 	</div>
+        <div id="outter-contenido">
+            <div id="contenido">
+
+            </div>
+        </div>
 </body>
 </html>

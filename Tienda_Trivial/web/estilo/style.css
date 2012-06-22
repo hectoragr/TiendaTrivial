@@ -159,3 +159,44 @@ html[xmlns] #nav {
 * html #nav {
 	height: 1%;
 }
+#outter-contenido{
+    margin-left: auto;
+    margin-right: auto;
+    width:800px;
+}
+#contenido{
+    clear:both;
+    width:764px;
+    height: 400px;
+    padding-bottom: 20px;
+    
+    border-radius: 2em;
+
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+	
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+
+    background: #d1d1d1 ; /* for non-css3 browsers */
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#a9a9a9', endColorstr='#7a7a7a'); /* for IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#d1d1d1), to(#7a7a7a)); /* for webkit browsers */
+    background: -moz-linear-gradient(top,  #d1d1d1,  #7a7a7a); /* for firefox 3.6+ */
+
+    border: solid 1px #6d6d6d;
+}
+
+#text-content{
+    width:712px;
+    margin-left:auto;
+    margin-right:auto;
+    
+}
+
+#text-content p{
+    color:#fff
+    /*text-shadow: 5px 5px 5px #ffffff;*/
+}
+.firstLetter{
+    font-size:24px;
+}

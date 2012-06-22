@@ -4,3 +4,5 @@
 *.jar
 *.war
 *.ear
+/Tienda_Trivial/nbproject/private/
+/Tienda_Trivial/build/

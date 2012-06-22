@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Registrar inventario</title>
+<link rel="stylesheet" type="text/css" href="estilo/inventario.css" />
+</head>
+
+<body>
+<form id="agregarProducto" name="agregarProducto" method="get" action="" enctype="multipart/form-data">
+  <table width="600" border="1" cellspacing="5" cellpadding="1" align="center">
+    <tr>
+    <td><label for="cantidad" id="lcantidad">Cantidad</label><br/>
+        <input type="text" name="cantidad" id="tcantidad" /></td>
+      
+    <td><label for="upc" id="lupc">UPC</label><br/>
+        <input type="text" name="upc" id="tupc" /></td>
+      
+    <td><label for="descripcion" id="ldescripcion">Descripción</label><br/>
+        <input type="text" name="descripcion" id="tdescripción" /></td>
+    </tr>
+    <tr>
+      
+    <td><label for="marca" id="lmarca">Marca</label><br/>
+      <select name="marca" id="marca">
+         <option value="CalvinKlein"> Calvin Klein </option>
+         <option value="DKNY"> DKNY </option>
+         <option value="Levis"> Levi's </option>
+         <option value="Lacoste"> Lacoste </option>
+         <option value="Guess"> Guess </option>
+         <option value="Ivonne"> Ivonne </option>
+         <option value="Trucco"> Trucco </option>
+         <option value="NineWest"> Nine West</option>
+         <option value="RalphLauren"> Ralph Lauren </option>
+         <option value="Nautica"> Nautica </option>
+         <option value="TommyHilfiger"> Tommy Hilfiger </option>
+         <option value="Banana Republic"> Banana Republic </option>
+      </select></td>
+            
+    <td><label for="talla" id="ltalla">Talla</label><br/>
+        <select name="talla" id="talla">
+          <option value="XCH">XCH</option>
+          <option value="CH">CH</option>
+          <option value="M">M</option>
+          <option value="G">G</option>
+          <option value="XG">XG</option>
+      </select></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+     
+    <td><label for="costo" id="lcosto">Costo</label><br/>
+        <input type="text" name="costo" id="tcosto" /></td>
+    
+    <td><label for="precio" id="lprecio">Precio</label><br/>
+        <input type="text" name="precio" id="tprecio" /></td>
+    <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3" align="left"><label for="imagen" id="limagen">Agregar imagen</label><br/>
+      <input type="file" name="imagen" id="imagen" /></td>
+    </tr>
+    <tr>
+      <td colspan="3" align="center"><input style="width:auto;" type="submit" name="agregarArticulo" id="sagregarArticulo" value="Agregar artículo" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

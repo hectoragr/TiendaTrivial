@@ -1,0 +1,14 @@
+/* Hoja de estilo para  inventario.html */
+
+
+#table, td, th{
+           border:1px;
+}
+
+#td{
+           padding:15px;
+}
+
+#h2{
+           text-align: center;
+}

@@ -22,6 +22,13 @@
             document.getElementById("lapellido").className="invalid";
         ret = false;
   	}
+     var x=document.forms.agregarCliente.correo;
+       if (x.value==null|| x.value==""){
+           x.style.backgroundColor="#FFFF99";
+           document.getElementById("lcorreo").className="invalid";
+       ret = false;
+       }
+            
      var x=document.forms.agregarCliente.direccion1;
         if (x.value==null || x.value==""){
             x.style.backgroundColor="#FFFF99";
@@ -97,7 +104,8 @@
      </tr>
     <tr>
       <td><label for="correo" id="lcorreo"> Correo <span class="asterisco">*</span>:</label><br/>
-          <input type="text" name="correo" id="tcorreo" /></td>
+          <input type="text" name="correo" id="correo" /></td>
+    
       
       <td><label for="fechaNacimiento" id="lfechaNacimiento"> Fecha de Nacimiento <span class="asterisco">*</span>:</label>
           <br/>
@@ -160,6 +168,7 @@
     <tr>
       <td><label for="colonia" id="lcolonia"> Colonia <span class="asterisco">*</span>:</label><br/>
           <input type="text" name="colonia" id="colonia" /></td>
+      
       <td><label for="cp" id="lcp"> CP <span class="asterisco">*</span>:</label><br/>
           <input type="text" name="cp" id="cp" /><br/>
           <span id="scp" class="invalid"></span></td>

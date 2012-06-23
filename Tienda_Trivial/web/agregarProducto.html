@@ -4,56 +4,139 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Registrar inventario</title>
 <link rel="stylesheet" type="text/css" href="estilo/agregar.css" />
+<script type="text/javascript">
+   function validateForm(){
+    var ret = true    
+    var x=document.forms.agregarProducto.cantidad;
+	if (x.value==null || x.value==""){
+            x.style.backgroundColor="#FFFF99";
+            document.getElementById("lcantidad").className="invalid";
+	ret = false;
+  	}
+	else 
+            if (isNaN(parseInt(x.value))){
+  		x.style.backgroundColor="#FFFF99";
+		document.getElementById("lcantidad").className="invalid";
+		document.getElementById("scantidad").innerHTML="Introducir números";
+            ret = false;
+            }
+    var x=document.forms.agregarProducto.upc;
+	if (x.value==null || x.value==""){
+            x.style.backgroundColor="#FFFF99";
+            document.getElementById("lupc").className="invalid";
+	ret = false;
+  	}
+	else 
+            if (isNaN(parseInt(x.value))){
+  		x.style.backgroundColor="#FFFF99";
+		document.getElementById("lupc").className="invalid";
+		document.getElementById("supc").innerHTML="Introducir números";
+            ret = false;
+            } 
+     var x=document.forms.agregarProducto.tipo;
+	if (x.value =="escoger"){
+            document.getElementById("ltipo").className="invalid";
+        ret = false;
+	}
+     var x=document.forms.agregarProducto.marca;
+	if (x.value =="escoger"){
+            document.getElementById("lmarca").className="invalid";
+        ret = false;
+	}
+     var x=document.forms.agregarProducto.talla;
+	if (x.value =="escoger"){
+            document.getElementById("ltalla").className="invalid";
+        ret = false;
+	}
+    var x=document.forms.agregarProducto.costo;
+	if (x.value==null || x.value==""){
+            x.style.backgroundColor="#FFFF99";
+            document.getElementById("lcosto").className="invalid";
+	ret = false;
+  	}
+	else 
+            if (isNaN(parseInt(x.value))){
+  		x.style.backgroundColor="#FFFF99";
+		document.getElementById("lcosto").className="invalid";
+		document.getElementById("scosto").innerHTML="Introducir números";
+            ret = false;
+            }
+   return ret;
+   }
+</script>
 </head>
 
 <body>
-<form id="agregarProducto" name="agregarProducto" method="get" action="" enctype="multipart/form-data">
-  <table width="600" border="1" cellspacing="5" cellpadding="1" align="center">
+<form id="agregarProducto" name="agregarProducto" method="get" action="servidor.html" onsubmit="return validateForm(this)">
+  <table width="500" border="1" cellspacing="5" cellpadding="1" align="center">
     <tr>
-    <td><label for="cantidad" id="lcantidad">Cantidad</label><br/>
-        <input type="text" name="cantidad" id="tcantidad" /></td>
-      
-    <td><label for="upc" id="lupc">UPC</label><br/>
-        <input type="text" name="upc" id="tupc" /></td>
-      
-    <td><label for="descripcion" id="ldescripcion">Descripción</label><br/>
-        <input type="text" name="descripcion" id="tdescripción" /></td>
+    <td><label for="cantidad" id="lcantidad">Cantidad<span class="asterisco">*</span>:</label><br/>
+        <input type="text" name="cantidad" id="cantidad" size="17" style="width:auto;" /><br/>
+        <span id="scantidad" class="invalid"></span></td>
+              
+    <td><label for="upc" id="lupc">UPC<span class="asterisco">*</span>:</label><br/>
+        <input type="text" name="upc" id="upc" size="5" style="width:auto;"/><br/>
+        <span id="supc" class="invalid"></span></td>
+    
+    <td><label for="tipo" id="ltipo">Tipo de zapato<span class="asterisco">*</span>:</label><br/>
+        <select name="tipo" id="tipo">
+            <option value="escoger">Elige tipo</option>
+            <option value="bota">Bota</option>
+            <option value="casual">Casual</option>
+            <option value="deportivo">Deportivo</option>
+            <option value="sandalia">Sandalia</option>
+            <option value="zapatilla">Zapatilla</option>
+        </select></td>
     </tr>
     <tr>
       
-    <td><label for="marca" id="lmarca">Marca</label><br/>
+    <td><label for="marca" id="lmarca">Marca<span class="asterisco">*</span>:</label><br/>
       <select name="marca" id="marca">
-         <option value="CalvinKlein"> Calvin Klein </option>
-         <option value="DKNY"> DKNY </option>
-         <option value="Levis"> Levi's </option>
-         <option value="Lacoste"> Lacoste </option>
-         <option value="Guess"> Guess </option>
-         <option value="Ivonne"> Ivonne </option>
-         <option value="Trucco"> Trucco </option>
-         <option value="NineWest"> Nine West</option>
-         <option value="RalphLauren"> Ralph Lauren </option>
-         <option value="Nautica"> Nautica </option>
-         <option value="TommyHilfiger"> Tommy Hilfiger </option>
-         <option value="Banana Republic"> Banana Republic </option>
-      </select></td>
+         <option value="escoger">Elige marca</option>
+         <option value="aldoConti">Aldo Conti</option>
+         <option value="caterpillar">Caterpillar</option>
+         <option value="crocs">Crocs</option>
+         <option value="dione">Dione</option>
+         <option value="guess">Guess</option>
+         <option value="lacoste">Lacoste</option>
+         <option value="nike">Nike</option>
+         <option value="nineWest">Nine West</option>
+         <option value="puma">Puma</option>
+         <option value="tommyHilfiger">Tommy Hilfiger</option>
+       </select></td>
             
-    <td><label for="talla" id="ltalla">Talla</label><br/>
+    <td><label for="talla" id="ltalla">Talla<span class="asterisco">*</span>:</label><br/>
         <select name="talla" id="talla">
-          <option value="XCH">XCH</option>
-          <option value="CH">CH</option>
-          <option value="M">M</option>
-          <option value="G">G</option>
-          <option value="XG">XG</option>
+          <option value="escoger">Elige talla</option>
+          <option value="3">3</option>
+          <option value="3.5">3.5</option>
+          <option value="4">4</option>
+          <option value="4.5">4.5</option>
+          <option value="5">5</option>
+          <option value="5.5">5.5</option>
+          <option value="6">6</option>
+          <option value="6.5">6.5</option>
+          <option value="7">7</option>
+          <option value="7.5">7.5</option>
+          <option value="8">8</option>
+          <option value="8.5">8.5</option>
+          <option value="9">9</option>
+          <option value="9.5">9.5</option>
+          <option value="10">10</option>
+          
       </select></td>
-      <td>&nbsp;</td>
+     <td><label for="descripcion" id="ldescripcion">Descripción</label><br/>
+         <textarea name="descripcion" rows="2" cols="20"></textarea></td>
     </tr>
     <tr>
      
-    <td><label for="costo" id="lcosto">Costo</label><br/>
-        <input type="text" name="costo" id="tcosto" /></td>
+    <td><label for="costo" id="lcosto">Costo<span class="asterisco">*</span>:</label><br/>
+        <input type="text" name="costo" id="costo" size="5" style="width:auto;" /><br/>
+        <span id="scosto" class="invalid"></span></td>
     
-    <td><label for="precio" id="lprecio">Precio</label><br/>
-        <input type="text" name="precio" id="tprecio" /></td>
+    <td><label for="precio" id="lprecio">Precio<span class="asterisco">*</span>:</label><br/>
+        <input type="text" name="precio" id="precio" size="5" style="width:auto;" disabled="disabled"/></td>
+   
     <td>&nbsp;</td>
     </tr>
     <tr>

@@ -1,6 +1,6 @@
 /*IMPORTANTE: Se debe de crear la base de datos "tiendatrivial" antes de
 implementar el codigo. Posteriormente, se ejecuta este codigo dentro de ella.
-V 1.0.2*/
+V 1.0.3*/
 
 CREATE TABLE Usuario (idusuario varchar(15) not null,
                         nombre varchar(30) not null,
@@ -33,8 +33,8 @@ CREATE TABLE Producto (upc varchar(10) not null,
                         marca varchar(30) not null,
                         talla varchar(4) not null,
                         tipo varchar(15) not null,
-                        costo double not null,
-                        precio double not null,
+                        costo varchar(10) not null,
+                        precio varchar(10) not null,
                         cantidad int not null,
                         foto varchar(10) not null,
                         Primary Key(upc));
@@ -58,7 +58,7 @@ CREATE TABLE Devolucion	(iddevolucion char(10) not null,
                             upc char(10) not null,
                             idusuario varchar(15) not null,
                             cantidad int not null,
-                            total double not null,
+                            total int not null,
                             fechadevolucion date not null,
                             horadevolucion time not null,
                             defectuoso boolean not null,

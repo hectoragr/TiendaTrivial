@@ -124,7 +124,7 @@
                             <div>
                                <label for="contrasena" id="lcontrasena"> Contraseña: <span class="asterisco">*</span></label>
                                 <input type="hidden" name="thelength"  value="7" size=3 disabled="disabled"><br/>
-                                <input type="text" name="contrasena" id="contrasena" value="1234" size="17" style="width:auto;" disabled="disabled"/> 
+                                <input type="text" name="contrasena" id="contrasena" size="17" style="width:auto;"/> 
                                 <input type="button" name="generarContrasena" id="generarContrasena" value="Generar contraseña" style="width:auto;" onClick="contra(this.form.thelength.value)" />
                             </div>
                             <br/>

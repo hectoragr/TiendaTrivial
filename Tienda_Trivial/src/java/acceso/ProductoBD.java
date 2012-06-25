@@ -32,7 +32,6 @@ public class ProductoBD {
         double precio = producto.getPrecio();
         int cantidad = producto.getCantidad();
         String foto = producto.getFoto();
-        System.out.println("Llegue aqui");
         ResultSet resultado;
         String parametros = "SELECT costo, precio, cantidad FROM Producto WHERE upc='"
                 + upc + "'";

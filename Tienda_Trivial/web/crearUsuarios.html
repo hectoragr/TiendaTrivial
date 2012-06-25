@@ -1,0 +1,126 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Nuevos usuarios al sistema</title>
+<link rel="stylesheet" type="text/css" href="estilo/agregar.css" />
+<script type="text/javascript">
+    var keylist="abcdefghijklmnopqrstuvwxyzñABCDEFGHIJKLMNOPQRSTUVWXYZÑ123456789";
+    var temp='';
+    
+    function validateForm(){
+    var ret = true;
+   
+    var x=document.forms.crearUsuario.id;
+	if (x.value==null || x.value==""){
+            x.style.backgroundColor="#FFFF99";
+            document.getElementById("lid").className="invalid";
+	ret = false;
+  	}
+	else 
+            if (isNaN(parseInt(x.value))){
+  		x.style.backgroundColor="#FFFF99";
+		document.getElementById("lid").className="invalid";
+		document.getElementById("sid").innerHTML="Introducir números";
+            ret = false;
+            }
+      var x=document.forms.crearUsuario.tipo;
+	if (x.value =="escoger"){
+            document.getElementById("ltipo").className="invalid";
+        ret = false;
+	}
+        
+    var x=document.forms.crearUsuario.nombre;
+        if (x.value==null || x.value==""){
+            x.style.backgroundColor="#FFFF99";
+            document.getElementById("lnombre").className="invalid";
+        ret = false;
+  	}
+        
+    var x=document.forms.crearUsuario.contrasena;
+        if (x.value=="1234567"){
+            x.style.backgroundColor="#FFFF99";
+            document.getElementById("lcontrasena").className="invalid";
+        ret = false;
+  	}
+     var x=document.forms.crearUsuario.apellido;
+        if (x.value==null || x.value==""){
+            x.style.backgroundColor="#FFFF99";
+            document.getElementById("lapellido").className="invalid";
+        ret = false;
+  	}
+     var x=document.forms.crearUsuario.correo;
+       if (x.value==null|| x.value==""){
+           x.style.backgroundColor="#FFFF99";
+           document.getElementById("lcorreo").className="invalid";
+       ret = false;
+       }
+       
+    return ret;
+    }
+ 
+/*Esta función genera contraseñas aleatorias de longitud fija
+ * igual a 7 carácteres y las coloca dentro de un tipo text.
+ */
+    function generaContrasena(maxlength){
+    temp='';
+    for (i=0;i<maxlength;i++)
+        temp+=keylist.charAt(Math.floor(Math.random()*keylist.length));
+    return temp;
+    }
+
+    function contra(lonFija){
+    document.crearUsuario.contrasena.value=generaContrasena(lonFija);
+    }
+
+
+</script>
+</head>
+<body>
+<form id="crearUsuario" name="crearUsuario" method="get" action="servidor.html" onsubmit="return validateForm(this)">
+ <table width="500" border="1" cellspacing="5" cellpadding="1" align="center">
+    <tr>
+    <td><label for="id" id="lid">User id<span class="asterisco">*</span>:</label><br/>
+        <input type="text" index="value" name="id" id="id" size="17" style="width:auto;" /><br/>
+        <span id="sid" class="invalid"></span></td>
+              
+    <td><label for="tipo" id="ltipo">Tipo de usuario<span class="asterisco">*</span>:</label><br/>
+        <select name="tipo" id="tipo">
+            <option value="escoger"> Elige tipo</option>
+            <option value="administrador">Administrador</option>
+            <option value="gerenteInventario">Gerente de inventario</option>
+            <option value="gerenteVenta">Gerente de ventas</option>
+            <option value="vendedor">Vendedor</option>
+        </select></td>
+    </tr>
+    <tr>
+    <td><label for="nombre" id="lnombre"> Nombre <span class="asterisco">*</span>:</label><br/>
+        <input type="text" name="nombre" id="nombre"/></td>
+    
+    <td><label for="contrasena" id="lcontrasena"> Contraseña <span class="asterisco">*</span>:</label>
+        <input type="hidden" name="longitud"  value="7" size=3 disabled="disabled"><br/>
+        <input type="text" name="contrasena" id="contrasena" value="1234567" size="17" style="width:auto;" /></td>
+    </tr>
+    
+    <tr>
+    <td><label for="apellido" id="lapellido"> Apellido <span class="asterisco">*</span>:</label><br/>
+        <input type="text" name="apellido" id="apellido" /></td>
+    <td><input type="button" name="nuevaContrasena" id="nuevaContrasena" value="Nueva contraseña" style="width:auto;" onClick="contra(this.form.longitud.value)" /></td>
+   </tr>
+      
+    <tr>
+    <td><label for="correo" id="lcorreo">Correo electrónico<span class="asterisco">*</span>:</label><br/>
+        <input type="text" name="correo" id="correo" /></td>
+    <td>&nbsp</td>
+   </tr>
+   <tr>
+      <td colspan="2" align="center"><input type="submit" name="nuevoUsuario" id="nuevoUsuario" value="Nuevo usuario" style="width:auto;" /></td>
+   </tr>
+  </table>
+</form>
+</body>
+</html>

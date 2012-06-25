@@ -9,6 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="estilo/agregar.css" />
+        <link type="text/javascript" href="scripts/usuarios.js"/>
         <title>JSP Page</title>
     </head>
     <body>

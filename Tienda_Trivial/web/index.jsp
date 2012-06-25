@@ -33,7 +33,7 @@
                         <span>Usuario:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="usuarioLog"/><br/>
                         <span>Contraseña:</span>&nbsp;<input type="password" name="passLog"/><br/>
                         <span style="font-size:9px; margin-left: auto; margin-right:auto; text-align: center;"><a href="mailto:admin@example.org">¿Olvidaste tu contraseña o login?</a></span><br/>
-                        <input type="button" action="validarLog" value="Iniciar sesión"/>
+                        <input type="button" action="validarLog();" value="Iniciar sesión"/>
                     </form>
                 </div>
             </div>

@@ -11,6 +11,9 @@
 <title>Tienda trivial - Inicio</title>
 <link rel="stylesheet" type="text/css" href="estilo/style.css"/>
 <link rel="shortcut icon" href="estilo/favicon.ico">
+<script type="text/javascript">
+    var conectado=0;
+</script>
 </head>
 <body>
 	<div id="navegacion">

@@ -8,13 +8,12 @@ and open the template in the editor.
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Nuevos usuarios al sistema</title>
 <link rel="stylesheet" type="text/css" href="estilo/agregar.css" />
-            
 <script type="text/javascript">
-    var keylist="abcdefghijklmnopqrstuvwxyzñABCDEFGHIJKLMNOPQRSTUVWXYZÑ123456789"
-    var temp=''
+    var keylist="abcdefghijklmnopqrstuvwxyzñABCDEFGHIJKLMNOPQRSTUVWXYZÑ123456789";
+    var temp='';
     
     function validateForm(){
-    var ret = true
+    var ret = true;
    
     
     var x=document.forms.crearUsuario.id;
@@ -60,20 +59,18 @@ and open the template in the editor.
  
 
     function generaContrasena(maxlength){
-    temp=''
+    temp='';
     for (i=0;i<maxlength;i++)
-        temp+=keylist.charAt(Math.floor(Math.random()*keylist.length))
-    return temp
+        temp+=keylist.charAt(Math.floor(Math.random()*keylist.length));
+    return temp;
     }
 
     function contra(enterlength){
-    document.crearUsuario.contrasena.value=generaContrasena(enterlength)
-    } 
+    document.crearUsuario.contrasena.value=generaContrasena(enterlength);
+    }
 
 </script>
 </head>
-    
-    
 <body>
 <form id="crearUsuario" name="crearUsuario" method="get" action="servidor.html" onsubmit="return validateForm(this)">
  <table width="500" border="1" cellspacing="5" cellpadding="1" align="center">

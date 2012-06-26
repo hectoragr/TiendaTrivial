@@ -27,38 +27,59 @@ and open the template in the editor.
 		document.getElementById("lid").className="invalid";
 		document.getElementById("sid").innerHTML="Introducir números";
             ret = false;
-            }
+            }else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("lid").className="valid";
+            document.getElementById("sid").innerHTML="";
+             }    
+             
       var x=document.forms.crearUsuario.tipo;
 	if (x.value =="escoger"){
             document.getElementById("ltipo").className="invalid";
         ret = false;
-	}
+	}else{
+            document.getElementById("ltipo").className="valid";
+         }
         
     var x=document.forms.crearUsuario.nombre;
         if (x.value==null || x.value==""){
             x.style.backgroundColor="#FFFF99";
             document.getElementById("lnombre").className="invalid";
         ret = false;
-  	}
+  	}else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("lnombre").className="valid";
+          }
         
     var x=document.forms.crearUsuario.contrasena;
         if (x.value=="1234567"){
             x.style.backgroundColor="#FFFF99";
             document.getElementById("lcontrasena").className="invalid";
         ret = false;
-  	}
+  	}else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("lcontrasena").className="valid";
+          }
+        
      var x=document.forms.crearUsuario.apellido;
         if (x.value==null || x.value==""){
             x.style.backgroundColor="#FFFF99";
             document.getElementById("lapellido").className="invalid";
         ret = false;
-  	}
+  	}else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("lapellido").className="valid";
+          }
+          
      var x=document.forms.crearUsuario.correo;
        if (x.value==null|| x.value==""){
            x.style.backgroundColor="#FFFF99";
            document.getElementById("lcorreo").className="invalid";
        ret = false;
-       }
+       }else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("lcorreo").className="valid";
+          }
        
     return ret;
     }

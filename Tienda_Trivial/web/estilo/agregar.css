@@ -23,8 +23,10 @@
     color:red;
     font-weight:bold;   
     font-size:small;
-    
 }
+.valid{
+    color:"black";
+ }
 
 form table{
     margin-top:50px;

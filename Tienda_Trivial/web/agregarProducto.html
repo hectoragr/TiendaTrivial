@@ -19,7 +19,12 @@
 		document.getElementById("lcantidad").className="invalid";
 		document.getElementById("scantidad").innerHTML="Introducir números";
             ret = false;
-            }
+            }else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("lcantidad").className="valid";
+            document.getElementById("scantidad").innerHTML="";
+             }    
+             
     var x=document.forms.agregarProducto.upc;
 	if (x.value==null || x.value==""){
             x.style.backgroundColor="#FFFF99";
@@ -32,22 +37,45 @@
 		document.getElementById("lupc").className="invalid";
 		document.getElementById("supc").innerHTML="Introducir números";
             ret = false;
-            } 
+            }else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("lupc").className="valid";
+            document.getElementById("supc").innerHTML="";
+             }    
+             
      var x=document.forms.agregarProducto.tipo;
 	if (x.value =="escoger"){
             document.getElementById("ltipo").className="invalid";
         ret = false;
-	}
+	}else{
+            document.getElementById("ltipo").className="valid";
+         }
+         
      var x=document.forms.agregarProducto.marca;
 	if (x.value =="escoger"){
             document.getElementById("lmarca").className="invalid";
         ret = false;
-	}
+	}else{
+            document.getElementById("lmarca").className="valid";
+         }
+        
      var x=document.forms.agregarProducto.talla;
 	if (x.value =="escoger"){
             document.getElementById("ltalla").className="invalid";
         ret = false;
-	}
+	}else{
+            document.getElementById("ltalla").className="valid";
+         }
+     var x=document.forms.agregarProducto.descripcion;
+        if (x.value==null || x.value==""){
+            x.style.backgroundColor="#FFFF99";
+            document.getElementById("ldescripcion").className="invalid";
+        ret = false;
+  	}else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("ldescripcion").className="valid";
+          }
+        
     var x=document.forms.agregarProducto.costo;
 	if (x.value==null || x.value==""){
             x.style.backgroundColor="#FFFF99";
@@ -60,14 +88,18 @@
 		document.getElementById("lcosto").className="invalid";
 		document.getElementById("scosto").innerHTML="Introducir números";
             ret = false;
-            }
+            }else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("lcosto").className="valid";
+            document.getElementById("scosto").innerHTML="";
+             }    
    return ret;
    }
 </script>
 </head>
 
 <body>
-<form id="agregarProducto" name="agregarProducto" method="get" action="agregarProducto" onsubmit="return validateForm(this)">
+<form id="agregarProducto" name="agregarProducto" method="get" action="servidor.html" onsubmit="return validateForm(this)">
   <table width="500" border="1" cellspacing="5" cellpadding="1" align="center">
     <tr>
     <td><label for="cantidad" id="lcantidad">Cantidad<span class="asterisco">*</span>:</label><br/>

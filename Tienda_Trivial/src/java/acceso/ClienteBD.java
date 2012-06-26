@@ -19,7 +19,7 @@ public class ClienteBD {
     public static int agregar(Cliente cliente) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
 
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tiendatrivial", "root", "");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8889/tiendatrivial", "root", "root");
         Statement stmt = con.createStatement();
         String nombre = cliente.getNombre();
         String apellido = cliente.getApellido();

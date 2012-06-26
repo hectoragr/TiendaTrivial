@@ -13,7 +13,7 @@ import java.sql.*;
  */
 public class ClienteBD {
     /*
-     * El metodo "agregar" regresa: 1 si se agrega un cliente nuevo, 3 si se genera un error
+     * El metodo "agregar" regresa: 1 si se agrega un cliente nuevo, 2 si se genera un error
      */
 
     public static int agregar(Cliente cliente) throws ClassNotFoundException, SQLException {
@@ -40,10 +40,9 @@ public class ClienteBD {
         resultado = stmt.executeQuery(parametros);
 
         if (resultado.next()) {
-            int idcliente = resultado.getInt("maximo");
-            //int i = Integer.parseInt(idcliente);
-            int siguienteid = idcliente++; //PLACEHOLDER "2"!!!
-            String paraminsrt = "INSERT INTO Cliente VALUES ('" + 2 + "', '" + nombre + "', '" + apellido
+            int idcliente = resultado.getInt(1);
+            int siguienteid = idcliente+=1;
+            String paraminsrt = "INSERT INTO Cliente VALUES ('" + siguienteid + "', '" + nombre + "', '" + apellido
                     + "', '" + sexo + "', '" + ano + "-" + mes + "-" + dia + "', '" + correo + "', '" + direccion + "', '" + colonia
                     + "', '" + cp + "', '" + ciudad + "', '" + estado + "', '" + telefono + "', '" + celular + "')";
             //executeUpdate regresa el numero de renglones afectados por el query, el cual deberia ser 1

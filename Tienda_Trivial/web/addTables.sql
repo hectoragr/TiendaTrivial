@@ -1,6 +1,6 @@
 /*IMPORTANTE: Se debe de crear la base de datos "tiendatrivial" antes de
 implementar el codigo. Posteriormente, se ejecuta este codigo dentro de ella.
-V 1.0.3*/
+V 1.0.4*/
 
 CREATE TABLE Usuario (idusuario varchar(15) not null,
                         nombre varchar(30) not null,
@@ -17,7 +17,7 @@ CREATE TABLE Cliente (idcliente char(10) not null,
                         nombre varchar(30) not null,
                         apellido varchar(40) not null,
                         sexo char(1) not null,
-                        fechanac datetime not null,
+                        fechanac date not null,
                         correo varchar(30) not null,
                         direccion text not null,
                         colonia varchar(20) not null,

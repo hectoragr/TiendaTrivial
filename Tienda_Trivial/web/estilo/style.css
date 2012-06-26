@@ -167,7 +167,6 @@ html[xmlns] #nav {
 #contenido{
     clear:both;
     width:764px;
-    height: 400px;
     padding-bottom: 20px;
     
     border-radius: 2em;
@@ -239,7 +238,10 @@ html[xmlns] #nav {
 #columnasUser{
     width:550px;
     display:block;
-    height: 180px;
+    
+    margin-left: auto;
+    margi-right:auto;
+    margin-top:20px;
 }
 #productos_query{
     width:600px;

@@ -4,9 +4,17 @@
         <servlet-name>agregarProducto</servlet-name>
         <servlet-class>acceso.agregarProducto</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>agregarCliente</servlet-name>
+        <servlet-class>acceso.agregarCliente</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>agregarProducto</servlet-name>
         <url-pattern>/agregarProducto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>agregarCliente</servlet-name>
+        <url-pattern>/agregarCliente</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

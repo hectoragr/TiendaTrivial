@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Crear cuenta del cliente</title>
 <link rel="stylesheet" type="text/css" href="estilo/agregar.css" />
-    
+    <!--- coment -->
 <script type="text/javascript">
     
     function validateForm(){
@@ -15,32 +15,60 @@
             x.style.backgroundColor="#FFFF99";
             document.getElementById("lnombre").className="invalid";
         ret = false;
-  	}
-     var x=document.forms.agregarCliente.apellido;
+  	} else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("lnombre").className="valid";
+          }
+        
+    var x=document.forms.agregarCliente.apellido;
         if (x.value==null || x.value==""){
             x.style.backgroundColor="#FFFF99";
             document.getElementById("lapellido").className="invalid";
         ret = false;
-  	}
-     var x=document.forms.agregarCliente.correo;
+  	} else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("lapellido").className="valid";
+          }
+        
+    var x=document.forms.agregarCliente.dia;
+	if (x.value =="escoger"){
+            document.getElementById("lfechaNacimiento").className="invalid";
+        ret = false;
+	}else{
+            x.style.backgroundColor="#FFFFFF";           
+            document.getElementById("lfechaNacimiento").className="valid";
+          }
+        
+    var x=document.forms.agregarCliente.correo;
        if (x.value==null|| x.value==""){
            x.style.backgroundColor="#FFFF99";
            document.getElementById("lcorreo").className="invalid";
        ret = false;
-       }
+       }else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("lcorreo").className="valid";
+        }
             
      var x=document.forms.agregarCliente.direccion;
         if (x.value==null || x.value==""){
             x.style.backgroundColor="#FFFF99";
             document.getElementById("ldireccion").className="invalid";
         ret = false;
-  	}
+  	}else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("ldireccion").className="valid";
+          }
+          
      var x=document.forms.agregarCliente.colonia;
         if (x.value==null || x.value==""){
             x.style.backgroundColor="#FFFF99";
             document.getElementById("lcolonia").className="invalid";
         ret = false;
-  	}
+  	}else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("lcolonia").className="valid";
+          }
+          
      var x=document.forms.agregarCliente.cp;
 	if (x.value==null || x.value==""){
             x.style.backgroundColor="#FFFF99";
@@ -53,18 +81,30 @@
 		document.getElementById("lcp").className="invalid";
 		document.getElementById("scp").innerHTML="Introducir números";
             ret = false;
-            }    
+            }else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("lcp").className="valid";
+            document.getElementById("scp").innerHTML="";
+             }    
+             
     var x=document.forms.agregarCliente.ciudad;
         if (x.value==null || x.value==""){
             x.style.backgroundColor="#FFFF99";
             document.getElementById("lciudad").className="invalid";
         ret = false;
-  	}
+  	}else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("lciudad").className="valid";
+         }
+         
     var x=document.forms.agregarCliente.estado;
 	if (x.value =="escoger"){
             document.getElementById("lestado").className="invalid";
         ret = false;
-	}
+	}else{
+            document.getElementById("lestado").className="valid";
+         }
+         
     var x=document.forms.agregarCliente.telefono;
 	if (x.value==null || x.value==""){
             x.style.backgroundColor="#FFFF99";
@@ -84,6 +124,10 @@
 		document.getElementById("ltelefono").className="invalid";
 		document.getElementById("stelefono").innerHTML="Mínimo 8 digitos";
             ret = false;
+            }else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("ltelefono").className="valid";
+            document.getElementById("stelefono").innerHTML="";
             }
     
     return ret;
@@ -112,7 +156,7 @@
         <td><label for="fechaNacimiento" id="lfechaNacimiento"> Fecha de Nacimiento <span class="asterisco">*</span>:</label>
           <br/>
       <select name="dia" id="dia">
-          <option selected="selected">dd</option>
+          <option value="escoger">dd</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>

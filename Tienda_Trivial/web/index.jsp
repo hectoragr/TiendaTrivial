@@ -9,8 +9,59 @@
 <html>
 <head>
 <title>Tienda trivial - Inicio</title>
+<link rel="stylesheet" type="text/css" href="estilo/agregar.css"/>
 <link rel="stylesheet" type="text/css" href="estilo/style.css"/>
 <link rel="shortcut icon" href="estilo/favicon.ico">
+<script type="text/javascript">
+    var conectado=0;
+   /* if(conectado>0){
+        switch(parseInt(conectado)){
+            case 1: x.innerHTML="<H1>Eres un vendedor</H1>"; break;
+            case 2: x.innerHMTL="<H1>Eres un gerente de ventas</H1>"; break;
+            case 3: x.innerHMTL="<H1>Eres un gerente de inventario</H1>"; break;
+            case 4: x.innerHMTL="<H1>Eres un administrador</H1>"; break;
+            default: break;
+        }
+    }*/
+    function cargarHTMLUsuario(usuario){
+        var x=document.getElementById('text-content');
+        switch (parseInt(usuario)){
+            case 1: x.innerHTML="<H1>Eres un vendedor</H1>"; break;
+            case 2: x.innerHTML="<H1>Eres un gerente de ventas</H1>"; break;
+            case 3: x.innerHTML="<H1>Eres un gerente de inventario</H1>"; break;
+            case 4: x.innerHTML="<H1>Eres un admin</H1>"; break;
+            default: break;
+        }
+    }
+    function ahah(url, target) {
+  document.getElementById(target).innerHTML = ' Fetching data...';
+  if (window.XMLHttpRequest) {
+    req = new XMLHttpRequest();
+  } else if (window.ActiveXObject) {
+    req = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  if (req != undefined) {
+    req.onreadystatechange = function() {ahahDone(url, target);};
+    req.open("GET", url, true);
+    req.send("");
+  }
+}  
+
+function ahahDone(url, target) {
+  if (req.readyState == 4) { // only if req is "loaded"
+    if (req.status == 200) { // only if "OK"
+      document.getElementById(target).innerHTML = req.responseText;
+    } else {
+      document.getElementById(target).innerHTML=" AHAH Error:\n"+ req.status + "\n" +req.statusText;
+    }
+  }
+}
+
+function load(name, div) {
+	ahah(name,div);
+	return false;
+}
+</script>
 </head>
 <body>
 	<div id="navegacion">
@@ -29,11 +80,11 @@
                     <p style="font-size:2em;">Bienvenido al sistema de Tienda Trivial</p>
                     <p><span class="firstLetter">I</span>nicia sesión para poder acceder a las diferentes
                     herramientas.</p>
-                    <form id="formaLogin" style="width:220px; display:block;">
-                        <span>Usuario:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="usuarioLog"/><br/>
+                    <form id="formaLogin" name="formaLogin" style="width:220px; display:block;">
+                        <span>Usuario:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="usuarioLog" name="usuarioLog"/><br/>
                         <span>Contraseña:</span>&nbsp;<input type="password" name="passLog"/><br/>
                         <span style="font-size:9px; margin-left: auto; margin-right:auto; text-align: center;"><a href="mailto:admin@example.org">¿Olvidaste tu contraseña o login?</a></span><br/>
-                        <input type="button" action="validarLog();" value="Iniciar sesión"/>
+                        <input type="button" onclick="load('forms/opcionesVendedor.html','text-content');return false;" value="Iniciar sesión"/>
                     </form>
                 </div>
             </div>

@@ -2,9 +2,10 @@
 
 
 #text-content table{
-     margin-top:50px;
+     margin-top:20px;
      font-size:13px;
      border:0;
+     margin-bottom: 20px;
 }
 #text-content table td{
      border:0;
@@ -23,8 +24,10 @@
     color:red;
     font-weight:bold;   
     font-size:small;
-    
 }
+.valid{
+    color:"black";
+ }
 
 form table{
     margin-top:50px;
@@ -39,3 +42,5 @@ form table td{
 form table td input{
      width:230px;
 }
+
+/*comentarios*/

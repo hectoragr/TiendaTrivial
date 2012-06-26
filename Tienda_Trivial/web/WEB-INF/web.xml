@@ -8,6 +8,10 @@
         <servlet-name>agregarCliente</servlet-name>
         <servlet-class>acceso.agregarCliente</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>agregarUsuario</servlet-name>
+        <servlet-class>acceso.agregarUsuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>agregarProducto</servlet-name>
         <url-pattern>/agregarProducto</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>agregarCliente</servlet-name>
         <url-pattern>/agregarCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>agregarUsuario</servlet-name>
+        <url-pattern>/agregarUsuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

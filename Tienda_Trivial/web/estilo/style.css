@@ -230,7 +230,7 @@ html[xmlns] #nav {
     padding-bottom:10px;
 }
 #botonSubmit{
-    padding-top: 10px;
+    padding-top: 0px;
     width:90px;
     display:block;
     margin:auto;

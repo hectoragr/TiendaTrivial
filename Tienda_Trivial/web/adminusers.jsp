@@ -26,13 +26,13 @@
             document.getElementById("lid").className="invalid";
 	ret = false;
   	}
-	else 
+/*	else 
             if (isNaN(parseInt(x.value))){
   		x.style.backgroundColor="#FFFF99";
 		document.getElementById("lid").className="invalid";
 		document.getElementById("sid").innerHTML="Introducir números";
             ret = false;
-            }
+            }*/
       var x=document.forms.crearUsuario.tipo;
 	if (x.value =="escoger"){
             document.getElementById("ltipo").className="invalid";
@@ -89,7 +89,7 @@
         <div id="outter-contenido">
             <div id="contenido">
                 <div id="text-content">
-                    <form id="crearUsuario" name="crearUsuario" method="get" action="servidor.html" onsubmit="return validateForm(this)">
+                    <form id="crearUsuario" name="crearUsuario" method="get" action="agregarUsuario" onsubmit="return validateForm(this)">
                         <div id="columnasUser">
                         <span id="leftSpan"><div>
                                 <label for="id" id="lid">User id<label class="asterisco">*</label>:</label><br/>
@@ -115,10 +115,10 @@
                                 <label for="tipo" id="ltipo">Tipo de usuario:<span class="asterisco">*</span></label><br/>
                                 <select name="tipo" id="tipo">
                                     <option value="escoger"> Elige tipo</option>
-                                    <option value="administrador">Administrador</option>
-                                    <option value="gerenteInventario">Gerente de inventario</option>
-                                    <option value="gerenteVenta">Gerente de ventas</option>
-                                    <option value="vendedor">Vendedor</option>
+                                    <option value="1">Administrador</option>
+                                    <option value="2">Gerente de inventario</option>
+                                    <option value="3">Gerente de ventas</option>
+                                    <option value="4">Vendedor</option>
                                 </select>
                             </div>
                             <div>

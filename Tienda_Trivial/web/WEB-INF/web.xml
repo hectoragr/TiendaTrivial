@@ -15,7 +15,10 @@
     <servlet>
         <servlet-name>agregarUsuario</servlet-name>
         <servlet-class>acceso.agregarUsuario</servlet-class>
-
+    </servlet>
+    <servlet>
+        <servlet-name>logout</servlet-name>
+        <servlet-class>acceso.logout</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>agregarProducto</servlet-name>
@@ -32,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>agregarUsuario</servlet-name>
         <url-pattern>/agregarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

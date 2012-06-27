@@ -9,6 +9,7 @@
 <html>
 <head>
 <title>Tienda trivial - Venta</title>
+<link rel="stylesheet" type="text/css" href="estilo/agregar.css"/>
 <link rel="stylesheet" type="text/css" href="estilo/style.css"/>
 <link rel="shortcut icon" href="estilo/favicon.ico">
 </head>

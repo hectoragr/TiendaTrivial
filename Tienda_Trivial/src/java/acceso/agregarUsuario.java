@@ -39,7 +39,7 @@ public class agregarUsuario extends HttpServlet {
         int tipo = Integer.parseInt(request.getParameter("tipo"));
         String contrasena = request.getParameter("contrasena");
         
-        Usuario usuario = new Usuario(id, nombre, apellido, contrasena, tipo, correo, 0, true);
+        Usuario usuario = new Usuario(id, nombre, apellido, contrasena, tipo, correo, 0, 1);
         
         if (UsuarioBD.agregar(usuario) == 1){
             response.sendRedirect("usuarioAgregado.jsp");

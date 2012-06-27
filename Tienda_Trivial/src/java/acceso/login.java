@@ -40,7 +40,7 @@ public class login extends HttpServlet {
         String password = request.getParameter("passLog");
 
         Usuario usuario = new Usuario(idusuario, "", "", password, 0, "", 0, 0);
-        String url;
+
         switch (loginBD.entrar(usuario)) {
             case 1:
                 url="bienvenido.jsp";

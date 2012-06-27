@@ -50,11 +50,12 @@ public class agregarUsuario extends HttpServlet {
                           "<br><br>Usuario: "+id+"<br><br>Contrase&ntilde;a: "+contrasena+"<br><br>"+
                           "Saludos y suerte, <br><br> Tienda Trivial";
             boolean isBodyHTML = true;
-            try{
+            try {
                 MailUtilLocal.sendMail(to, from, subject, body, isBodyHTML);
-            } catch (MessagingException e){
-                
+            } catch (MessagingException ex) {
+                Logger.getLogger(agregarUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
+
             response.sendRedirect("usuarioAgregado.jsp");
         }
         else{

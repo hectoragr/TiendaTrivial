@@ -103,7 +103,7 @@
 </head>
 
 <body>
-<form id="agregarProducto" name="agregarProducto" method="post" enctype="multipart/form-data" action="agregarProducto" onsubmit="return validateForm(this)">
+<form id="agregarProducto" name="agregarProducto" method="get" enctype="multipart/form-data" action="agregarProducto" onsubmit="return validateForm(this)">
   <table width="500" border="1" cellspacing="5" cellpadding="1" align="center">
     <tr>
     <td><label for="cantidad" id="lcantidad">Cantidad<span class="asterisco">*</span>:</label><br/>
@@ -116,34 +116,32 @@
     
     <td><label for="tipo" id="ltipo">Tipo de zapato<span class="asterisco">*</span>:</label><br/>
         <select name="tipo" id="tipo">
-            <option value="escoger">Elige tipo</option>
-            <option value="bota">Bota</option>
-            <option value="casual">Casual</option>
-            <option value="deportivo">Deportivo</option>
-            <option value="sandalia">Sandalia</option>
-            <option value="zapatilla">Zapatilla</option>
+            <option value="">Elige tipo</option>
+            <option value="Tenis">Tenis</option>
+            <option value="Sandalia">Sandalia</option>
+            <option value="Zapato">Zapato</option>
         </select></td>
     </tr>
     <tr>
       
     <td><label for="marca" id="lmarca">Marca<span class="asterisco">*</span>:</label><br/>
       <select name="marca" id="marca">
-         <option value="escoger">Elige marca</option>
-         <option value="aldoConti">Aldo Conti</option>
-         <option value="caterpillar">Caterpillar</option>
-         <option value="crocs">Crocs</option>
-         <option value="dione">Dione</option>
-         <option value="guess">Guess</option>
-         <option value="lacoste">Lacoste</option>
-         <option value="nike">Nike</option>
-         <option value="nineWest">Nine West</option>
-         <option value="puma">Puma</option>
-         <option value="tommyHilfiger">Tommy Hilfiger</option>
+         <option value="">Elige marca</option>
+         <option value="Aldo Conti">Aldo Conti</option>
+         <option value="Caterpillar">Caterpillar</option>
+         <option value="Crocs">Crocs</option>
+         <option value="Dione">Dione</option>
+         <option value="Guess">Guess</option>
+         <option value="Lacoste">Lacoste</option>
+         <option value="Nike">Nike</option>
+         <option value="Nine West">Nine West</option>
+         <option value="Puma">Puma</option>
+         <option value="Tommy Hilfiger">Tommy Hilfiger</option>
        </select></td>
             
     <td><label for="talla" id="ltalla">Talla<span class="asterisco">*</span>:</label><br/>
         <select name="talla" id="talla">
-          <option value="escoger">Elige talla</option>
+          <option value="">Elige talla</option>
           <option value="3">3</option>
           <option value="3.5">3.5</option>
           <option value="4">4</option>
@@ -171,7 +169,7 @@
         <span id="scosto" class="invalid"></span></td>
     
     <td><label for="precio" id="lprecio">Precio<span class="asterisco">*</span>:</label><br/>
-        <input type="text" name="precio" id="precio" size="5" style="width:auto;" disabled="disabled" /></td>
+        <input type="text" name="precio" id="precio" size="5" style="width:auto;" /></td>
    
     <td>&nbsp;</td>
     </tr>

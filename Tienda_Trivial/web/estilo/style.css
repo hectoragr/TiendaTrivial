@@ -230,17 +230,16 @@ html[xmlns] #nav {
     padding-bottom:10px;
 }
 #botonSubmit{
-    padding-top: 0px;
-    width:90px;
+    padding-top: 10px;
+    width:120px;
     display:block;
     margin:auto;
 }
 #columnasUser{
     width:550px;
     display:block;
-    
     margin-left: auto;
-    margi-right:auto;
+    margin-right:auto;
     margin-top:20px;
 }
 #productos_query{
@@ -258,4 +257,9 @@ html[xmlns] #nav {
 .search_options{
     width:650px;
     margin:auto;
+}
+#tablaProd{
+    color:black;
+    margin-left:auto;
+    margin-right:auto;
 }

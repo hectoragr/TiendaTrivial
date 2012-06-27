@@ -21,9 +21,9 @@ public class ProductoBD {
     public static int agregar(Producto producto) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
 
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tiendatrivial", "root", "");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8889/tiendatrivial", "root", "root");
         Statement stmt = con.createStatement();
-        int upc = producto.getUpc();
+        String upc = producto.getUpc();
         String descripcion = producto.getDescripcion();
         String marca = producto.getMarca();
         double talla = producto.getTalla();
@@ -48,8 +48,8 @@ public class ProductoBD {
             }
 
         } else {
-            String paraminsrt = "INSERT INTO Producto VALUES ('" + upc + "', '" + descripcion + "', '" + marca
-                    + "', '" + talla + "', '" + tipo + "', " + costo + ", " + precio + ", " + cantidad
+            String paraminsrt = "INSERT INTO Producto VALUES ('" + upc + "', " + cantidad + ", '" + tipo
+                    + "', '" + marca + "', " + talla + ", '" + descripcion + "', " + costo + ", " + precio
                     + ", '" + foto + "')";
             //executeUpdate regresa el numero de renglones afectados por el query, el cual deberia ser 1
             int insertar = stmt.executeUpdate(paraminsrt);
@@ -59,4 +59,5 @@ public class ProductoBD {
         }
         return 3;//occurio un error
     }
+    
 }

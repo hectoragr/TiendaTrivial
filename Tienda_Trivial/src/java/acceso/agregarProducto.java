@@ -34,28 +34,31 @@ public class agregarProducto extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException, SQLException {
-        int upc = Integer.parseInt(request.getParameter("upc"));
+        double talla=0.0;
+        String upc = request.getParameter("upc");
         String descripcion = request.getParameter("descripcion");
         String marca = request.getParameter("marca");
-        double talla = Double.parseDouble(request.getParameter("talla"));
+        System.out.println(request.getParameter("talla"));
+        talla = Double.parseDouble(request.getParameter("talla"));
         String tipo = request.getParameter("tipo");
         double costo = Double.parseDouble(request.getParameter("costo"));
-        //double precio = Double.parseDouble(request.getParameter("precio"));
+        double precio = Double.parseDouble(request.getParameter("precio"));
         int cantidad = Integer.parseInt(request.getParameter("cantidad"));
-        //String imagen = request.getParameter("imagen");
+        String imagen = request.getParameter("imagen");
+        System.out.println(""+talla);
         
-        Producto producto = new Producto(upc, descripcion, marca, talla, tipo, costo,
-                                      666.0, cantidad, "000.jpg");//REEMPLAZAR CON VARIABLES
+        Producto producto = new Producto(upc, cantidad, tipo, marca, talla, descripcion, costo,
+                                      precio, imagen);//REEMPLAZAR CON VARIABLES
                                                                   //UNA VEZ IMPLEMENTADAS
         
         //CODIGO UTILIZADO PARA PRUEBA, REEMPLAZAR CON LAS REDIRECCIONES APROPIADAS!!!
         String url;
         switch(ProductoBD.agregar(producto)){
             //en caso de insercion
-            case 1: url = "/agregar.jsp";//DIRECCION NO INCLUIDA EN EL REPOSITORIO
+            case 1: url = "/forms/productoActualizado.jsp";//DIRECCION NO INCLUIDA EN EL REPOSITORIO
                 break;
             //en caso de actualizacion
-            case 2: url = "/actualizar.jsp";//DIRECCION NO INCLUIDA EN EL REPOSITORIO
+            case 2: url = "/forms/productoActualizado.jsp";//DIRECCION NO INCLUIDA EN EL REPOSITORIO
                 break;
             //en caso de error
             default: url = "/error.jsp";//DIRECCION NO INCLUIDA EN EL REPOSITORIO

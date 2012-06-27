@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,7 +32,7 @@ public class agregarUsuario extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException, SQLException {
+            throws ServletException, IOException, ClassNotFoundException, SQLException{
         String id = request.getParameter("id");
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
@@ -42,6 +43,18 @@ public class agregarUsuario extends HttpServlet {
         Usuario usuario = new Usuario(id, nombre, apellido, contrasena, tipo, correo, 0, 1);
         
         if (UsuarioBD.agregar(usuario) == 1){
+            String to = correo;
+            String from = "erasmo_eli@yahoo.com.mx";
+            String subject = "Cuenta de Usuario";
+            String body = "Aqui esta el nombre de usuario y contrase&ntilde;a de tu nueva cuenta:"+
+                          "<br><br>Usuario: "+id+"<br><br>Contrase&ntilde;a: "+contrasena+"<br><br>"+
+                          "Saludos y suerte, <br><br> Tienda Trivial";
+            boolean isBodyHTML = true;
+            try{
+                MailUtilLocal.sendMail(to, from, subject, body, isBodyHTML);
+            } catch (MessagingException e){
+                
+            }
             response.sendRedirect("usuarioAgregado.jsp");
         }
         else{

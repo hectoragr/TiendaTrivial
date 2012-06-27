@@ -34,8 +34,8 @@ CREATE TABLE Producto (upc varchar(10) not null,
                         marca varchar(30) not null,  
                         talla varchar(4) not null,              
                         descripcion varchar(60) not null,
-                        costo varchar(10) not null,
-                        precio varchar(10) not null,
+                        costo double not null,
+                        precio double not null,
                         foto varchar(10) not null,
                         Primary Key(upc));
 					   

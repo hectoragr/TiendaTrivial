@@ -70,7 +70,9 @@
                     </select></label>
                 </form>
                 </div>
-                <br/>
+                <div id="botonSubmit">
+                    <input type="submit" name="buscarProd" id="buscarInventario" value="Buscar" style="width:auto;" />
+                </div>
                 <br/>
                 <div id="productos_query">
                     <h1 style="color:black;">Aquí saldrían los productos para vender</h1>        

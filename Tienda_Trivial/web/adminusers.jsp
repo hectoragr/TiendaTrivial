@@ -89,8 +89,11 @@
         <div id="outter-contenido">
             <div id="contenido">
                 <div id="text-content">
+                    <br/>
+                    <h3 style="margin:auto; width:150px;">Agregar Usuarios</h3>
                     <form id="crearUsuario" name="crearUsuario" method="get" action="agregarUsuario" onsubmit="return validateForm(this)">
                         <div id="columnasUser">
+                            
                         <span id="leftSpan"><div>
                                 <label for="id" id="lid">User id<label class="asterisco">*</label>:</label><br/>
                                 <input type="text" name="id" id="id" size="17" style="width:auto;" /><br/>

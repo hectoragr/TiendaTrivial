@@ -7,59 +7,7 @@
 <%@page import="java.util.Date"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%!
-Date date = new Date();
-String anhoOptions=llenarAnho();
-String mesOptions=llenarMes();
-String diasOptions="";
-public String llenarAnho(){
-    String htmlAnho="";
-    for(int i=(2012-5);i<=2012;i++){
-        htmlAnho+="<option value=\""+i+"\">"+i+"</option>";
-    }
-    return htmlAnho;
-}
 
-public String llenarMes(){
-    String htmlMes="";
-    for(int i=1;i<=12;i++){
-        htmlMes+="<option value=\""+i+"\">"+numMes(i)+"</option>";
-    }
-    return htmlMes;
-}
-
-public String numMes(int dia){
-    String mes="error";
-    switch (dia){
-       case 1: mes="Enero"; break;
-       case 2: mes="Febrero"; break;
-       case 3: mes="Marzo"; break;
-       case 4: mes="Abril"; break;
-       case 5: mes="Mayo"; break;
-       case 6: mes="Junio"; break;
-       case 7: mes="Julio"; break;
-       case 8: mes="Agosto"; break;
-       case 9: mes="Septiembre"; break;
-       case 10: mes="Octubre"; break;
-       case 11: mes="Noviembre"; break;
-       case 12: mes="Diciembre"; break;                              
-       default: break;
-    }
-    return mes;
-}
-
-public String diasOptions(int mes, int anho){
-    short bis=0;
-    if((anho%400)==0){
-        bis=1;
-    }else if((anho%100)==0){
-        bis=0;
-    }else if((anho%4)==0){
-        bis=0;
-    }else{
-        bis=0;
-    }
-
-}
 %>
 <!DOCTYPE html>
 <html>
@@ -71,16 +19,35 @@ public String diasOptions(int mes, int anho){
 <body>
     <script type="text/javascript">
 	var bisiesto=0;
+        var l_anho=0;
+        var l_mes=0;
         function llenarMes(){
-            var htmlMes="";
+            var htmlMes="<option>- Mes -</option>";
             for(var i=1;i<=12;i++){
                 htmlMes+="<option value="+i+">"+numMes(i)+"</option>";
             }
-            return htmlMes;
+            document.getElementById("devolucion_mes").innerHTML = htmlMes;
         }
-        function 
+        function numMes(i){
+            switch (i){
+                case 1: return "Enero"; break;
+                case 2: return "Febrero"; break;
+                case 3: return "Marzo"; break;
+                case 4: return "Abril"; break;
+                case 5: return "Mayo"; break;
+                case 6: return "Junio"; break;
+                case 7: return "Julio"; break;
+                case 8: return "Agosto"; break;
+                case 9: return "Septiembre"; break;
+                case 10: return "Octubre"; break;
+                case 11: return "Noviembre"; break;
+                default: return "Diciembre"; break;
+            }
+        }
+        
 	function ajustarFeb(anho){
-		if (anho % 4 != 0) {
+		l_anho=anho;
+                if (anho % 4 != 0) {
     		bisiesto=0;
   		} else if (anho % 400 == 0) {
     		bisiesto=1;
@@ -90,7 +57,10 @@ public String diasOptions(int mes, int anho){
     		bisiesto=1;
   		}
 	}
+        
 	function llenarDias(mes){
+        l_mes=mes;
+        ajustarFeb(l_anho);
 	var i=1;
 	var top=0;
 	var dias_txt="<option> - D&iacute;a - </option>";
@@ -106,19 +76,19 @@ public String diasOptions(int mes, int anho){
 	for(i=1;i<=top;i++){
 		dias_txt+="<option>"+i+"</option>";
 	}
-		document.getElementById("dias_").innerHTML = dias_txt;
+		document.getElementById("devolucion_dia").innerHTML = dias_txt;
 	}
 	
 	function llenarAnhos(){
 		var i = 0;
 		var fecha = new Date();
 		anhos_txt="<option> - A&ntilde;o - </option>";
-		for(i=fecha.getFullYear()-18;i>fecha.getFullYear()-65;i--){
+		for(i=fecha.getFullYear();i>fecha.getFullYear()-5;i--){
 			anhos_txt+="<option value=\""+i+"\">"+i+"</option>";
 		}
-		document.getElementById("anho_").innerHTML = anhos_txt;
+		document.getElementById("devolucion_anho").innerHTML = anhos_txt;
 	}
-</script>
+    </script>
 	<div id="navegacion">
 	<ul id="nav">
 		<li><a href="index.jsp">Inicio</a></li>
@@ -139,22 +109,21 @@ public String diasOptions(int mes, int anho){
                     <label>Cliente:<input type="text" name="devolucion_cliente" style="width:100px;"/></label>
                     <label>No. Venta:<input type="text" name="devolucion_idventa" style="width:50px;"/></label>
                     <label>Fecha:
-                        <select name="devolucion_anho">
-                            <option>- Año -</option>
-                            <%=anhoOptions%>
+                        <select name="devolucion_anho" id="devolucion_anho" onchange="ajustarFeb(this.value);llenarMes();">
+                            <script>llenarAnhos();</script>
                         </select>
-                        <select name="devolucion_mes">
-                            <option>- Mes -</option>
-                            <%=mesOptions%>
+                        <select name="devolucion_mes" id="devolucion_mes" onchange="llenarDias(this.value)">
+                            <script>llenarMes();</script>
                         </select>
-                        <select name="devolucion_dia">
+                        <select name="devolucion_dia" id="devolucion_dia">
                             <option>- Día -</option>
-                            
                         </select>
                     </label>
                 </form>
                 </div>
-                <br/>
+                <div id="botonSubmit">
+                    <input type="submit" name="buscarDev" id="buscarInventario" value="Buscar" style="width:auto;" />
+                </div>
                 <br/>
                 <div id="productos_query">
                     <h1 style="color:black;">Aquí saldrían los productos para vender</h1>        

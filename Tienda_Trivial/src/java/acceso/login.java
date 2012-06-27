@@ -35,7 +35,7 @@ public class login extends HttpServlet {
         String idusuario = request.getParameter("usuarioLog");
         String password = request.getParameter("passLog");
 
-        Usuario usuario = new Usuario(idusuario, "", "", password, 0, "", 0, false);
+        Usuario usuario = new Usuario(idusuario, "", "", password, 0, "", 0, 0);
 
         switch (loginBD.entrar(usuario)) {
             case 1:

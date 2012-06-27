@@ -77,10 +77,12 @@
                     </label>
                 </form>
                 </div>
-                <br/>
+                <div id="botonSubmit">
+                    <input type="submit" name="buscarInventario" id="buscarInventario" value="Buscar" style="width:auto;" />
+                </div>
                 <br/>
                 <div id="productos_query">
-                    <h1 style="color:black;">Aquí saldrían los productos disponibles, agotados o por agotarse</h1>        
+                  <!--  <h1 style="color:black;">Aquí saldrían los productos disponibles, agotados o por agotarse</h1> -->       
                 </div>
                 </div>
             </div>

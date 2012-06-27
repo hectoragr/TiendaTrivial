@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package acceso; 
+package acceso;
 
 import arquetipo.Usuario;
 import java.io.IOException;
@@ -40,29 +40,29 @@ public class login extends HttpServlet {
         String password = request.getParameter("passLog");
 
         Usuario usuario = new Usuario(idusuario, "", "", password, 0, "", 0, 0);
-
+        String url;
         switch (loginBD.entrar(usuario)) {
             case 1:
-                url="bienvenido.jsp";
+                url = "bienvenido.jsp";
                 break;
             case 2:
-                url="strike.jsp";
+                url = "strike.jsp";
                 break;
             case 3:
-                url="block.jsp";
+                url = "block.jsp";
                 break;
             default:
-                url="error.jsp";
-                
+                url = "error.jsp";
+
         }
-        
+
         session.setAttribute("nombre", usuario.getNombre());
         session.setAttribute("apellido", usuario.getApellido());
         session.setAttribute("nombre", usuario.getNombre());
         session.setAttribute("nivelacceso", usuario.getNivelacceso());
         session.setAttribute("reset", usuario.getResetpassword());
-        ServletContext sc=this.getServletContext();
-        RequestDispatcher dispatcher=sc.getRequestDispatcher(url);
+        ServletContext sc = this.getServletContext();
+        RequestDispatcher dispatcher = sc.getRequestDispatcher(url);
         dispatcher.forward(request, response);
     }
 

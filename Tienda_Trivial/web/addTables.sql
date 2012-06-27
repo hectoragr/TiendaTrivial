@@ -1,6 +1,6 @@
 /*IMPORTANTE: Se debe de crear la base de datos "tiendatrivial" antes de
 implementar el codigo. Posteriormente, se ejecuta este codigo dentro de ella.
-V 1.0.5*/
+V 1.0.6*/
 
 CREATE TABLE Usuario (idusuario varchar(15) not null,
                         nombre varchar(30) not null,
@@ -61,7 +61,7 @@ CREATE TABLE Devolucion	(iddevolucion char(10) not null,
                             total int not null,
                             fechadevolucion date not null,
                             horadevolucion time not null,
-                            defectuoso boolean not null,
+                            defectuoso int not null,
                             razon text null,
                             Primary Key(iddevolucion, idcliente, idventa, upc),
                             Foreign Key(idcliente) references Cliente(idcliente),

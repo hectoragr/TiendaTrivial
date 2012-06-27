@@ -58,9 +58,8 @@ public class login extends HttpServlet {
 
         session.setAttribute("nombre", usuario.getNombre());
         session.setAttribute("apellido", usuario.getApellido());
-        session.setAttribute("nombre", usuario.getNombre());
         session.setAttribute("nivelacceso", usuario.getNivelacceso());
-        session.setAttribute("reset", usuario.getResetpassword());
+        session.setAttribute("resetpassword", usuario.getResetpassword());
         ServletContext sc = this.getServletContext();
         RequestDispatcher dispatcher = sc.getRequestDispatcher(url);
         dispatcher.forward(request, response);

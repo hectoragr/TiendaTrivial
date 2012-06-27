@@ -25,7 +25,7 @@ public class loginBD {
     public static int entrar(Usuario usuario) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
 
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tiendatrivial", "root", "");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8889/tiendatrivial", "root", "root");
         Statement stmt = con.createStatement();
         String idusuario = usuario.getIdusuario();
         String password = usuario.getPassword();

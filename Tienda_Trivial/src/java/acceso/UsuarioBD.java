@@ -28,7 +28,7 @@ public class UsuarioBD {
         resultado = stmt.executeQuery(parametros);
         if (!resultado.next()) {
             String paraminsrt = "INSERT INTO Usuario VALUES ('" + id + "', '" + nombre + "', '" + apellido
-                    + "', '" + contrasena + "', '" + tipo + "', '" + correo + "', '" + 0 + "', '"+ true + "')";
+                    + "', '" + contrasena + "', '" + tipo + "', '" + correo + "', '" + 0 + "', '"+ 1 + "')";
             //executeUpdate regresa el numero de renglones afectados por el query, el cual deberia ser 1
             return stmt.executeUpdate(paraminsrt);
         }

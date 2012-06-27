@@ -1,0 +1,273 @@
+
+    <!--- coment -->
+<script type="text/javascript">
+    
+    function validateForm(){
+    var ret = true
+    
+    var x=document.forms.agregarCliente.nombre;
+        if (x.value==null || x.value==""){
+            x.style.backgroundColor="#FFFF99";
+            document.getElementById("lnombre").className="invalid";
+        ret = false;
+  	} else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("lnombre").className="valid";
+          }
+        
+    var x=document.forms.agregarCliente.apellido;
+        if (x.value==null || x.value==""){
+            x.style.backgroundColor="#FFFF99";
+            document.getElementById("lapellido").className="invalid";
+        ret = false;
+  	} else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("lapellido").className="valid";
+          }
+        
+    var x=document.forms.agregarCliente.dia;
+	if (x.value =="escoger"){
+            document.getElementById("lfechaNacimiento").className="invalid";
+        ret = false;
+	}else{
+            x.style.backgroundColor="#FFFFFF";           
+            document.getElementById("lfechaNacimiento").className="valid";
+          }
+        
+    var x=document.forms.agregarCliente.correo;
+       if (x.value==null|| x.value==""){
+           x.style.backgroundColor="#FFFF99";
+           document.getElementById("lcorreo").className="invalid";
+       ret = false;
+       }else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("lcorreo").className="valid";
+        }
+            
+     var x=document.forms.agregarCliente.direccion;
+        if (x.value==null || x.value==""){
+            x.style.backgroundColor="#FFFF99";
+            document.getElementById("ldireccion").className="invalid";
+        ret = false;
+  	}else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("ldireccion").className="valid";
+          }
+          
+     var x=document.forms.agregarCliente.colonia;
+        if (x.value==null || x.value==""){
+            x.style.backgroundColor="#FFFF99";
+            document.getElementById("lcolonia").className="invalid";
+        ret = false;
+  	}else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("lcolonia").className="valid";
+          }
+          
+     var x=document.forms.agregarCliente.cp;
+	if (x.value==null || x.value==""){
+            x.style.backgroundColor="#FFFF99";
+            document.getElementById("lcp").className="invalid";
+	ret = false;
+  	}
+	else 
+            if (isNaN(parseInt(x.value))){
+  		x.style.backgroundColor="#FFFF99";
+		document.getElementById("lcp").className="invalid";
+		document.getElementById("scp").innerHTML="Introducir números";
+            ret = false;
+            }else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("lcp").className="valid";
+            document.getElementById("scp").innerHTML="";
+             }    
+             
+    var x=document.forms.agregarCliente.ciudad;
+        if (x.value==null || x.value==""){
+            x.style.backgroundColor="#FFFF99";
+            document.getElementById("lciudad").className="invalid";
+        ret = false;
+  	}else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("lciudad").className="valid";
+         }
+         
+    var x=document.forms.agregarCliente.estado;
+	if (x.value =="escoger"){
+            document.getElementById("lestado").className="invalid";
+        ret = false;
+	}else{
+            document.getElementById("lestado").className="valid";
+         }
+         
+    var x=document.forms.agregarCliente.telefono;
+	if (x.value==null || x.value==""){
+            x.style.backgroundColor="#FFFF99";
+            document.getElementById("ltelefono").className="invalid";
+	ret = false;
+  	}
+	else 
+            if (isNaN(parseInt(x.value))){
+		x.style.backgroundColor="#FFFF99";
+		document.getElementById("ltelefono").className="invalid";
+		document.getElementById("stelefono").innerHTML="Introducir números";
+            ret = false;
+            }
+	else 
+            if (x.value<9999999){
+		x.style.backgroundColor="#FFFF99";
+		document.getElementById("ltelefono").className="invalid";
+		document.getElementById("stelefono").innerHTML="Mínimo 8 digitos";
+            ret = false;
+            }else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("ltelefono").className="valid";
+            document.getElementById("stelefono").innerHTML="";
+            }
+    
+    return ret;
+    }
+	
+</script>
+
+<form  name="agregarCliente" method="get" action="agregarCliente" onsubmit="return validateForm(this)">
+  <table width="600" border="1" cellspacing="5" cellpadding="1" align="center">
+    <tr>
+      <td><label for="nombre" id="lnombre"> Nombre <span class="asterisco">*</span>:</label><br/>
+          <input type="text" name="nombre" id="nombre"/></td>
+               
+      <td><label for="apellido" id="lapellido"> Apellido <span class="asterisco">*</span>:</label><br/>
+          <input type="text" name="apellido" id="apellido" /></td>
+     </tr>
+    <tr>
+        <td><label for="sexo" id="lsexo"> Sexo <span class="asterisco">*</span>:</label><br/>
+            <label for="mujer" id="lmujer"> Mujer </label> 
+            <input type="radio" name="sexo" checked="checked" value="M" style="width:auto;"/><br/>
+            <label for="hombre" id="lhombre"> Hombre </label>
+            <input type="radio" name="sexo" value="H" style="width:auto;" /></td>
+          
+        <td><label for="fechaNacimiento" id="lfechaNacimiento"> Fecha de Nacimiento <span class="asterisco">*</span>:</label>
+          <br/>
+      <select name="dia" id="dia">
+          <option value="escoger">dd</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+          <option value="21">21</option>
+          <option value="22">22</option>
+          <option value="23">23</option>
+          <option value="24">24</option>
+          <option value="25">25</option>
+          <option value="26">26</option>
+          <option value="27">27</option>
+          <option value="28">28</option>
+          <option value="29">29</option>
+          <option value="30">30</option>
+          <option value="31">31</option>
+      </select>
+        <select name="mes" id="mes">
+          <option value="1">Enero</option>
+          <option value="2">Febrero</option>
+          <option value="3">Marzo</option>
+          <option value="4">Abril</option>
+          <option value="5">Mayo</option>
+          <option value="6">Junio</option>
+          <option value="7">Julio</option>
+          <option value="8">Agosto</option> 
+          <option value="9">Septiembre</option>
+          <option value="10">Octubre</option>
+          <option value="11">Noviembre</option>
+          <option value="12">Diciembre</option>
+          </select>
+      <input type="text" name="ano" id="ano" value="aaaa" size="4" maxlength="4" style="width:auto;" /></td>
+    </tr>
+    <tr>
+      <td><label for="correo" id="lcorreo"> Correo electrónico <span class="asterisco">*</span>:</label><br/>
+          <input type="text" name="correo" id="correo" /></td>
+      
+      <td><label for="direccion" id="ldireccion">Dirección <span class="asterisco">*</span>:</label><br/>
+          <textarea name="direccion" rows="2" cols="20"></textarea></td>
+    </tr>
+    <tr>
+      <td><label for="colonia" id="lcolonia"> Colonia <span class="asterisco">*</span>:</label><br/>
+          <input type="text" name="colonia" id="colonia" /></td>
+      
+      <td><label for="cp" id="lcp"> CP <span class="asterisco">*</span>:</label><br/>
+          <input type="text" name="cp" id="cp" /><br/>
+          <span id="scp" class="invalid"></span></td>
+    </tr>
+    <tr>
+      <td><label for="ciudad" id="lciudad"> Ciudad/Municipio <span class="asterisco">*</span>:</label><br/>
+          <input type="text" name="ciudad" id="ciudad" /></td>
+      
+      <td><label for="estado" id="lestado"> Estado <span class="asterisco">*</span>:</label>
+      
+        <select name="estado" id="estado">
+           <option value="escoger">Escoger estado</option> 
+           <option value="aguascalientes">Aguascalientes</option>
+           <option value="baja california">Baja California</option>
+           <option value="baja california sur">Baja California Sur</option>
+           <option value="campeche">Campeche</option>
+           <option value="coahuila">Coahuila</option>
+           <option value="colima">Colima</option>
+           <option value="chiapas">Chiapas</option>
+           <option value="chihuahua">Chihuahua</option>
+           <option value="distrito federal">Distrito Federal</option>
+           <option value="durango">Durango</option>
+           <option value="guanajuato">Guanajuato</option>
+           <option value="guerrero">Guerrero</option>
+           <option value="hidalgo">Hidalgo</option>
+           <option value="jalisco">Jalisco</option>
+           <option value="mexico">México</option>
+           <option value="michoacan">Michoacán</option>
+           <option value="morelos">Morelos</option>
+           <option value="nayarit">Nayarit</option>
+           <option value="nuevo leon">Nuevo León</option>
+           <option value="oaxaca">Oaxaca</option>
+           <option value="puebla">Puebla</option>
+           <option value="queretaro">Querétaro</option>
+           <option value="quintana roo">Quintana roo</option>
+           <option value="san luis potosi">San Luis Potosi</option>
+           <option value="sinaloa">Sinaloa</option>
+           <option value="sonora">Sonora</option>
+           <option value="tabasco">Tabasco</option>
+           <option value="tamaulipas">Tamaulipas</option>
+           <option value="tlaxcala">Tlaxcala</option>
+           <option value="veracruz">Veracruz</option>
+           <option value="yucatan">Yucatán</option>
+           <option value="zacatecas">Zacatecas</option>
+       </select>
+     
+      </td>
+    </tr>
+    <tr>
+      <td><label for="telefono" id="ltelefono"> Telefono <span class="asterisco">*</span>:</label><br/>
+           <input type="text" name="telefono" id="telefono" /><br/>
+           <span id="stelefono" class="invalid"></span></td>
+      
+      <td><label for="celular" id="lcelular"> Celular </label><br/>
+          <input type="text" name="celular" id="celular" /><br/>
+          <span id="scelular" class="invalid"></span></td>
+     </tr>
+    <tr>
+      <td colspan="2" align="center"><input style="width:auto;" type="submit" name="registrar" id="sregistrar" value="Registrar" /></td>
+    </tr>
+  </table>
+</form>

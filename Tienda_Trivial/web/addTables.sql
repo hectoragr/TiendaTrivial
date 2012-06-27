@@ -1,6 +1,6 @@
 /*IMPORTANTE: Se debe de crear la base de datos "tiendatrivial" antes de
 implementar el codigo. Posteriormente, se ejecuta este codigo dentro de ella.
-V 1.0.4*/
+V 1.0.5*/
 
 CREATE TABLE Usuario (idusuario varchar(15) not null,
                         nombre varchar(30) not null,
@@ -9,7 +9,7 @@ CREATE TABLE Usuario (idusuario varchar(15) not null,
                         nivelacceso char(1) not null,
                         correo varchar(30) not null,
                         intentosfallidos char(1) not null,
-                        resetpassword boolean not null,
+                        resetpassword int not null,
                         Primary Key(idusuario));
 					  
 

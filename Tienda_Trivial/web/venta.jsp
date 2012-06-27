@@ -168,7 +168,7 @@
 			while(rst.next()){  
           %>
                     <tr><td onclick="pedir(<%=rst.getString("upc")%>)"><%=rst.getString("upc")%></td><td><%=rst.getString("descripcion")%></td><td style="text-align: center;"><%=rst.getString("tipo")%></td><td><%=rst.getString("marca")%></td>
-                        <td><%=rst.getString("precio")%></td><td><%=rst.getString("talla")%></td><td><%=rst.getString("cantidad")%></td>
+                        <td><%=rst.getString("precio")%></td><td><%=rst.getString("talla")%></td><td><%=rst.getString("cantidad")%></td><td><a href="agregarCarrito?upc=<%=rst.getString("upc")%>&cantidad=<%=rst.getString("cantidad")%>">Agregar</a>
                    </tr>
 	  <%    
 			}

@@ -12,6 +12,12 @@
 <title>Tienda trivial - Inventarios</title>
 <link rel="stylesheet" type="text/css" href="estilo/style.css"/>
 <link rel="shortcut icon" href="estilo/favicon.ico">
+<script type="text/javascript">
+    function pedir(upc){
+        var cantidad=prompt("¿Cuántos articulos del producto "+upc,"");
+        alert("Quiere "+cantidad+" del producto del UPC: "+upc);
+    }
+</script>
 </head>
 <body>
 	<div id="navegacion">
@@ -47,23 +53,23 @@
 			System.out.println(e.getMessage());
 		  }
            %>
-          <form method="get" action="inventario.jsp">
+          <form method="post" action="inventario.jsp">
                     <br/>
                     <br/>
                     <div class="search_options">
                     <label>UPC:<input type="text" name="upc"/></label>
                     <label>Marca: <select name="marca" id="marca">
                         <option value="" style="margin-left:auto; margin-right:auto;">- Marca -</option>
-                                <option value="aldoConti">Aldo Conti</option>
-                                <option value="caterpillar">Caterpillar</option>
-                                <option value="crocs">Crocs</option>
-                                <option value="dione">Dione</option>
-                                <option value="guess">Guess</option>
-                                <option value="lacoste">Lacoste</option>
-                                <option value="nike">Nike</option>
-                                <option value="nineWest">Nine West</option>
-                                <option value="puma">Puma</option>
-                                <option value="tommyHilfiger">Tommy Hilfiger</option>
+                                <option value="Aldo Conti">Aldo Conti</option>
+                                <option value="Caterpillar">Caterpillar</option>
+                                <option value="Crocs">Crocs</option>
+                                <option value="Dione">Dione</option>
+                                <option value="Guess">Guess</option>
+                                <option value="Lacoste">Lacoste</option>
+                                <option value="Nike">Nike</option>
+                                <option value="Nine West">Nine West</option>
+                                <option value="Puma">Puma</option>
+                                <option value="Tommy Hilfiger">Tommy Hilfiger</option>
                         </select></label>
                     <label>Tipo: <select name="tipo">
                         <option style="text-align:center;" value="">- Tipo -</option>
@@ -153,19 +159,17 @@
                     }
                     params++;
                 }
-
-                System.out.println(queryProd);
                 rst=stmt.executeQuery(queryProd);
                 %>
-                <table id="tablaProd" border="1" cellspacing="0" cellpadding="0">
+                <table id="tablaProd" border="1" cellspacing="0" cellpadding="5px;">
       
-                   <tr><td><b>UPC</b></td><td><b>Descripción</b></td><td><b>Tipo</b></td><td><b>Marca</b></td>
-                       <td><b>Precio</b></td><td><b>Foto</b></td>
+                   <tr><td style="width:50px;text-align: center;"><b>UPC</b></td><td style="width:100px;"><b>Descripción</b></td><td style="width:75px;text-align: center;"><b>Tipo</b></td><td style="width:60px; text-align: center;"><b>Marca</b></td>
+                       <td style="text-align: center;"><b>Precio</b></td><td style="text-align: center;"><b>Foto</b></td>
                    </tr>
 	  <%
 			while(rst.next()){  
           %>
-                    <tr><td><%=rst.getString("upc")%></td><td><%=rst.getString("descripcion")%></td><td><%=rst.getString("tipo")%></td><td><%=rst.getString("marca")%></td>
+                    <tr><td style="text-align: center;" onclick="pedir(<%=rst.getString("upc")%>)"><%=rst.getString("upc")%></td><td><%=rst.getString("descripcion")%></td><td style="text-align: center;"><%=rst.getString("tipo")%></td><td><%=rst.getString("marca")%></td>
                        <td><%=rst.getString("precio")%></td><td><%=rst.getString("foto")%></td>
                    </tr>
 	  <%    
@@ -176,7 +180,7 @@
              con.close();
            }
 		%>
-   </table>
+                </table>
                   <!--  <h1 style="color:black;">Aquí saldrían los productos disponibles, agotados o por agotarse</h1> -->       
                 </div>
                 </div>

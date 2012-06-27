@@ -45,7 +45,7 @@ public class agregarProducto extends HttpServlet {
         double precio = Double.parseDouble(request.getParameter("precio"));
         int cantidad = Integer.parseInt(request.getParameter("cantidad"));
         String imagen = request.getParameter("imagen");
-        System.out.println(""+talla);
+        System.out.println("talla:"+talla);
         
         Producto producto = new Producto(upc, cantidad, tipo, marca, talla, descripcion, costo,
                                       precio, imagen);//REEMPLAZAR CON VARIABLES

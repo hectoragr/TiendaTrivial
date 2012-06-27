@@ -266,7 +266,7 @@ function load(name, div) {
                     int nivel=(Integer)session.getAttribute("nivelacceso");
                     if(nivel==1){              
                     %>
-                    <h2 style="margin:auto; width:550px;padding-top:20px;">Bienvenido Admin</h2>
+                    <jsp:include page="forms/opcionesAdmin.jsp" />
                     <%}else if(nivel==2){%>
                     <h2 style="margin:auto; width:550px;padding-top:20px;">Bienvenido Gerente Inventario</h2>
                     <%}else if(nivel==3){%>

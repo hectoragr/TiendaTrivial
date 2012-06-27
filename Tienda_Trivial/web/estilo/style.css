@@ -259,7 +259,8 @@ html[xmlns] #nav {
     margin:auto;
 }
 #tablaProd{
-    color:black;
     margin-left:auto;
     margin-right:auto;
+    color:black;
+    text-align: center;
 }

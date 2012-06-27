@@ -15,7 +15,7 @@
     <script type="text/javascript">
     var keylist="abcdefghijklmnopqrstuvwxyzñABCDEFGHIJKLMNOPQRSTUVWXYZÑ123456789";
     var temp='';
-    
+    var conectado=<%=session.getAttribute("nivelacceso")%>;
     function validateForm(){
     var ret = true;
    
@@ -89,6 +89,14 @@
         <div id="outter-contenido">
             <div id="contenido">
                 <div id="text-content">
+                    
+                    <% 
+                    if(session.getAttribute("nivelacceso")!=null){
+                    int nivel=(Integer)session.getAttribute("nivelacceso");
+                    if(nivel==1){
+                    
+                   // if(nivelA=="1"){
+                    %>
                     <br/>
                     <h3 style="margin:auto; width:150px;">Agregar Usuarios</h3>
                     <form id="crearUsuario" name="crearUsuario" method="get" action="agregarUsuario" onsubmit="return validateForm(this)">
@@ -140,48 +148,16 @@
                         <div id="botonSubmit">
                         <input type="submit" name="crearUsuario" id="crearUsuario" value="Crear usuario" style="width:auto;" />
                         </div>
-                    <!--    
-                    <table width="500" border="1" cellspacing="5" cellpadding="1" align="center">
-                        <tr>
-                        <td><label for="id" id="lid">User id<span class="asterisco">*</span>:</label><br/>
-                            <input type="text" name="id" id="id" size="17" style="width:auto;" /><br/>
-                            <span id="sid" class="invalid"></span></td>
-
-                        <td><label for="tipo" id="ltipo">Tipo de usuario<span class="asterisco">*</span>:</label><br/>
-                            <select name="tipo" id="tipo">
-                                <option value="escoger"> Elige tipo</option>
-                                <option value="administrador">Administrador</option>
-                                <option value="gerenteInventario">Gerente de inventario</option>
-                                <option value="gerenteVenta">Gerente de ventas</option>
-                                <option value="vendedor">Vendedor</option>
-                            </select></td>
-                        </tr>
-                        <tr>
-                        <td><label for="nombre" id="lnombre"> Nombre <span class="asterisco">*</span>:</label><br/>
-                            <input type="text" name="nombre" id="nombre"/></td>
-
-                        <td><label for="contrasena" id="lcontrasena"> Contraseña <span class="asterisco">*</span>:</label>
-                            <input type="hidden" name="thelength"  value="7" size=3 disabled="disabled"><br/>
-                            <input type="text" name="contrasena" id="contrasena" value="1234" size="17" style="width:auto;" disabled="disabled"/></td>
-                        </tr>
-
-                        <tr>
-                        <td><label for="apellido" id="lapellido"> Apellido <span class="asterisco">*</span>:</label><br/>
-                            <input type="text" name="apellido" id="apellido" /></td>
-                        <td><input type="button" name="generarContrasena" id="generarContrasena" value="Generar contraseña" style="width:auto;" onClick="contra(this.form.thelength.value)" /></td>
-                    </tr>
-
-                        <tr>
-                        <td><label for="correo" id="lcorreo">Correo electrónico<span class="asterisco">*</span>:</label><br/>
-                            <input type="text" name="correo" id="correo" /></td>
-                        <td>&nbsp</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" align="center"><input type="submit" name="crearUsuario" id="crearUsuario" value="Crear usuario" style="width:auto;" /></td>
-                    </tr>
-                    </table>
-                    -->
                     </form>
+                    <%}else{%>
+                    <h2 style="margin:auto; width:440px;padding-top:20px;">No tienes privilegios para ver esta página</h2>
+                    <% }
+                                      }else{%>
+                        <h2 style="margin:auto; width:440px;padding-top:20px;">No tienes privilegios para ver esta página</h2>             
+                        <%
+                                      }
+
+                    %>
                 </div>
             </div>
         </div>

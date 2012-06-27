@@ -43,16 +43,16 @@ public class login extends HttpServlet {
         String url;
         switch (loginBD.entrar(usuario)) {
             case 1:
-                url = "bienvenido.jsp";
+                url = "/bienvenido.jsp";
                 break;
             case 2:
-                url = "strike.jsp";
+                url = "/strike.jsp";
                 break;
             case 3:
-                url = "block.jsp";
+                url = "/block.jsp";
                 break;
             default:
-                url = "error.jsp";
+                url = "/error.jsp";
 
         }
 

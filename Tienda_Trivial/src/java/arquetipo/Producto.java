@@ -10,7 +10,7 @@ package arquetipo;
  */
 public class Producto {
 
-    private int upc;
+    private String upc;
     private String descripcion;
     private String marca;
     private double talla;
@@ -20,7 +20,7 @@ public class Producto {
     private int cantidad;
     private String foto;
 
-    public Producto(int upc, String descripcion, String marca, double talla, String tipo, double costo, double precio, int cantidad, String foto) {
+    public Producto(String upc, int cantidad, String tipo, String marca, double talla, String descripcion,  double costo, double precio, String foto) {
         this.upc = upc;
         this.descripcion = descripcion;
         this.marca = marca;
@@ -88,11 +88,11 @@ public class Producto {
         this.tipo = tipo;
     }
 
-    public int getUpc() {
+    public String getUpc() {
         return upc;
     }
 
-    public void setUpc(int upc) {
+    public void setUpc(String upc) {
         this.upc = upc;
     }
 

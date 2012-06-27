@@ -9,10 +9,13 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -32,24 +35,35 @@ public class login extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException, SQLException {
+        HttpSession session = request.getSession();
         String idusuario = request.getParameter("usuarioLog");
         String password = request.getParameter("passLog");
 
-        Usuario usuario = new Usuario(idusuario, "", "", password, 0, "", 0, false);
-
+        Usuario usuario = new Usuario(idusuario, "", "", password, 0, "", 0, 0);
+        String url;
         switch (loginBD.entrar(usuario)) {
             case 1:
-                response.sendRedirect("agregar.jsp");
+                url="bienvenido.jsp";
                 break;
             case 2:
-                response.sendRedirect("actualizar.jsp");
+                url="strike.jsp";
                 break;
             case 3:
-                response.sendRedirect("error.jsp");
+                url="block.jsp";
                 break;
             default:
-                response.sendRedirect("index.jsp");
+                url="error.jsp";
+                
         }
+        
+        session.setAttribute("nombre", usuario.getNombre());
+        session.setAttribute("apellido", usuario.getApellido());
+        session.setAttribute("nombre", usuario.getNombre());
+        session.setAttribute("nivelacceso", usuario.getNivelacceso());
+        session.setAttribute("reset", usuario.getResetpassword());
+        ServletContext sc=this.getServletContext();
+        RequestDispatcher dispatcher=sc.getRequestDispatcher(url);
+        dispatcher.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package acceso;
+package acceso; 
 
 import arquetipo.Usuario;
 import java.io.IOException;

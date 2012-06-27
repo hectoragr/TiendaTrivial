@@ -40,11 +40,15 @@ public class loginBD {
             }
             if (password.equals(storedpass)) {
                 String updateparams = "UPDATE Usuario SET intentosfallidos=0 WHERE idusuario='" + idusuario + "'";
+                String nombreStore=resultado.getString("nombre");
+                String apellidoStore=resultado.getString("apellido");
+                int nivelaccesoStore=resultado.getInt("nivelacceso");
+                int resetStore=resultado.getInt("resetpassword");
                 if (stmt.executeUpdate(updateparams) == 1) {
-                    usuario.setNombre(resultado.getString("nombre"));
-                    usuario.setApellido(resultado.getString("apellido"));
-                    usuario.setNivelacceso(resultado.getInt("nivelacceso"));
-                    usuario.setResetpassword(resultado.getInt("resetpassword"));
+                    usuario.setNombre(nombreStore);
+                    usuario.setApellido(apellidoStore);
+                    usuario.setNivelacceso(nivelaccesoStore);
+                    usuario.setResetpassword(resetStore);
                     return 1; //login successful, strikes reset to 0
                 } else {
                     return 5; //error

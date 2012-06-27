@@ -16,8 +16,12 @@
         function go_now ()   { window.location.href = "index.jsp"; }
 //--></script>
     </head>
+    <%
+    String nombre=(String)session.getAttribute("nombre");
+    String apellido=(String)session.getAttribute("apellido");
+    %>
     <body onLoad="redirect()">
-        <h1>Bienvenido, <%= session.getAttribute( "nombre" ) %></h1>
-        <h4>En 5 segundos irás al Index, o presiona <a href="index.jps">aquí</a> para ir ya</h4>
+        <h1>Bienvenido, <%= nombre %> <%=apellido%></h1>
+        <h4>En 5 segundos irás al Index, o presiona <a href="index.jsp">aquí</a> para ir ya</h4>
     </body>
 </html>

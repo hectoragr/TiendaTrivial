@@ -13,23 +13,16 @@
 <link rel="stylesheet" type="text/css" href="estilo/style.css"/>
 <link rel="shortcut icon" href="estilo/favicon.ico">
 <script type="text/javascript">
-    var conectado=0;
-   /* if(conectado>0){
-        switch(parseInt(conectado)){
-            case 1: x.innerHTML="<H1>Eres un vendedor</H1>"; break;
-            case 2: x.innerHMTL="<H1>Eres un gerente de ventas</H1>"; break;
-            case 3: x.innerHMTL="<H1>Eres un gerente de inventario</H1>"; break;
-            case 4: x.innerHMTL="<H1>Eres un administrador</H1>"; break;
-            default: break;
-        }
-    }*/
+   <%/* session.setAttribute("nivel",4);*/%>
+    var conectado=<%=session.getAttribute("nivelacceso")%>;
+    var x=document.getElementById('text-content');
     function cargarHTMLUsuario(usuario){
         var x=document.getElementById('text-content');
         switch (parseInt(usuario)){
-            case 1: x.innerHTML="<H1>Eres un vendedor</H1>"; break;
-            case 2: x.innerHTML="<H1>Eres un gerente de ventas</H1>"; break;
-            case 3: x.innerHTML="<H1>Eres un gerente de inventario</H1>"; break;
-            case 4: x.innerHTML="<H1>Eres un admin</H1>"; break;
+            case 4: x.innerHTML="<H1>Eres un vendedor</H1>"; break;
+            case 3: x.innerHTML="<H1>Eres un gerente de ventas</H1>"; break;
+            case 2: x.innerHTML="<H1>Eres un gerente de inventario</H1>"; break;
+            case 1: x.innerHTML="<H1>Eres un admin</H1>"; break;
             default: break;
         }
     }
@@ -89,5 +82,6 @@ function load(name, div) {
                 </div>
             </div>
         </div>
+    <script>cargarHTMLUsuario(conectado);</script>
 </body>
 </html>

@@ -16,9 +16,9 @@ public class Usuario {
     private int nivelacceso;
     private String correo;
     private int intentosfallidos;
-    private boolean resetpassword;
+    private int resetpassword;
 
-    public Usuario(String idusuario, String nombre, String apellido, String password, int nivelacceso, String correo, int intentosfallidos, boolean resetpassword) {
+    public Usuario(String idusuario, String nombre, String apellido, String password, int nivelacceso, String correo, int intentosfallidos, int resetpassword) {
         this.idusuario = idusuario;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -85,11 +85,11 @@ public class Usuario {
         this.password = password;
     }
 
-    public boolean isResetpassword() {
+    public int getResetpassword() {
         return resetpassword;
     }
 
-    public void setResetpassword(boolean resetpassword) {
+    public void setResetpassword(int resetpassword) {
         this.resetpassword = resetpassword;
     }
     

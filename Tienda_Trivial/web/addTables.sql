@@ -1,6 +1,6 @@
 /*IMPORTANTE: Se debe de crear la base de datos "tiendatrivial" antes de
 implementar el codigo. Posteriormente, se ejecuta este codigo dentro de ella.
-V 1.0.6*/
+V 1.0.7*/
 
 CREATE TABLE Usuario (idusuario varchar(15) not null,
                         nombre varchar(30) not null,
@@ -32,12 +32,24 @@ CREATE TABLE Producto (upc varchar(10) not null,
                         cantidad int not null,   
                         tipo varchar(15) not null,     
                         marca varchar(30) not null,  
-                        talla varchar(4) not null,              
+                        talla double not null,              
                         descripcion varchar(60) not null,
                         costo double not null,
                         precio double not null,
                         foto varchar(10) not null,
                         Primary Key(upc));
+
+CREATE TABLE Carrito (idcarrito char(10) not null,
+                    idcliente char(10) not null,
+                    upc varchar(10) not null,
+                    idusuario varchar(15) not null,
+                    cantidad int not null,
+                    fechaventa date not null,
+                    horaventa time not null,
+                    Primary Key(idcarrito, idcliente, upc),
+                    Foreign Key(idcliente) references Cliente(idcliente),
+                    Foreign Key(upc) references Producto(upc),
+                    Foreign Key(idusuario) references Usuario(idusuario));
 					   
 CREATE TABLE Venta (idventa char(10) not null,
                     idcliente char(10) not null,
@@ -46,6 +58,7 @@ CREATE TABLE Venta (idventa char(10) not null,
                     cantidad int not null,
                     fechaventa date not null,
                     horaventa time not null,
+                    cancelado int not null,
                     Primary Key(idventa, idcliente, upc),
                     Foreign Key(idcliente) references Cliente(idcliente),
                     Foreign Key(upc) references Producto(upc),
@@ -58,7 +71,6 @@ CREATE TABLE Devolucion	(iddevolucion char(10) not null,
                             upc char(10) not null,
                             idusuario varchar(15) not null,
                             cantidad int not null,
-                            total int not null,
                             fechadevolucion date not null,
                             horadevolucion time not null,
                             defectuoso int not null,

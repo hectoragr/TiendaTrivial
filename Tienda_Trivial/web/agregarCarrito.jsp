@@ -17,7 +17,6 @@
             String upc = request.getParameter("upc");
             int cantidad = Integer.parseInt(request.getParameter("cantidad"));
             String idusuario = (String) session.getAttribute("idusuario");
-            System.out.println(idusuario);
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8889/tiendatrivial", "root", "root");
             Statement stmt = con.createStatement();
             String params = "SELECT * FROM Carrito WHERE idusuario='" + idusuario + "'";

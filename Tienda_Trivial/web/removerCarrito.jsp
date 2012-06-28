@@ -16,7 +16,7 @@
                 <%
             String upc = request.getParameter("upc");
             String idusuario = (String) session.getAttribute("idusuario");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tiendatrivial", "root", "");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8889/tiendatrivial", "root", "root");
             Statement stmt = con.createStatement();
             String params = "DELETE FROM Carrito WHERE idusuario='"+idusuario+"' AND upc='"+upc+"'";
             if(stmt.executeUpdate(params)==1){%>

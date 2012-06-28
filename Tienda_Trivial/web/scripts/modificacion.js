@@ -117,3 +117,8 @@ function getRequestObject() {
     return(null);
   }
 }
+
+function comprar(cancelar){
+    var idcliente=prompt("Teclee el id del cliente");
+    window.location="/Tienda_Trivial/realizarCompra.jsp?idcliente="+idcliente+"&cancelar="+cancelar;
+}

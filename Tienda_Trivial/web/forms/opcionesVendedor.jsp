@@ -3,7 +3,7 @@
         <input type="button" value="Crear Cliente" onclick="load('forms/agregarCliente.jsp','text-content');"/>
     </span>
     <span id="rightSpan">
-        <input type="button" value="Reporte Inventarios"onclick="load('forms/informeInventario.html','opvend')"/>
+        <input type="button" value="Ver Carrito" onclick="load('carrito.jsp','text-content')"/>
     </span>
 </div>
 <jsp:include page="poragotarse.jsp"/>

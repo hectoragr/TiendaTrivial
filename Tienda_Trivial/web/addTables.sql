@@ -40,12 +40,10 @@ CREATE TABLE Producto (upc varchar(10) not null,
                         Primary Key(upc));
 
 CREATE TABLE Carrito (idcarrito char(10) not null,
-                    idcliente char(10) not null,
                     upc varchar(10) not null,
                     idusuario varchar(15) not null,
                     cantidad int not null,
-                    Primary Key(idcarrito, idcliente, upc),
-                    Foreign Key(idcliente) references Cliente(idcliente),
+                    Primary Key(idcarrito, upc),
                     Foreign Key(upc) references Producto(upc),
                     Foreign Key(idusuario) references Usuario(idusuario));
 					   

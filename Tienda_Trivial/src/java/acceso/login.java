@@ -55,7 +55,8 @@ public class login extends HttpServlet {
                 url = "/error.jsp";
 
         }
-
+        
+        session.setAttribute("idusuario", usuario.getIdusuario());
         session.setAttribute("nombre", usuario.getNombre());
         session.setAttribute("apellido", usuario.getApellido());
         session.setAttribute("nivelacceso", usuario.getNivelacceso());

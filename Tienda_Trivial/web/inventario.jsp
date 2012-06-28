@@ -96,10 +96,10 @@
                         <option value="10">10</option>
                     </select></label>
                     <label>
-                        <input type="checkbox" value="inventario_agotados"> Productos Agotados
+                        <input type="checkbox" name="agotados" value="agotados"> Productos Agotados
                     </label>
                     <label>
-                        <input type="checkbox" value="inventario_criticos"> Productos por agotarse
+                        <input type="checkbox" name="criticos" value="criticos"> Productos por agotarse
                     </label>
                     </div>
                     <div id="botonSubmit">
@@ -112,9 +112,9 @@
                 <%
                 if(request.getParameter("buscarInventario")!=null){
                 System.out.println("Llego a los parametros");
-                String busUpc,busDes,busMarca,busTipo,busFoto;
-                String queryProd="SELECT upc, descripcion,tipo,marca,talla,precio,foto FROM Producto";
-                busDes=busUpc=busMarca=busTipo=busFoto="";
+                String busUpc,busDes,busMarca,busTipo,busFoto,agotados,criticos;
+                String queryProd="SELECT * FROM Producto";
+                busDes=busUpc=busMarca=busTipo=busFoto=agotados=criticos="";
                 int busCantidad,params;
                 busCantidad=params=0;
                 double busTalla,busCosto,busPrecio;
@@ -159,18 +159,34 @@
                     }
                     params++;
                 }
+                if(request.getParameter("agotados")!=null){
+                    if(params<1){
+                        queryProd+=" WHERE cantidad=0";
+                    }else{
+                        queryProd+=" AND cantidad=0";
+                    } 
+                }
+                if(request.getParameter("criticos")!=null){
+                    if(params<1){
+                        queryProd+=" WHERE cantidad<5";
+                    }else{
+                        queryProd+=" AND cantidad <5";
+                    }
+                }
+                System.out.println("UPC: "+request.getParameter("upc"));
+                System.out.println("Agotados: "+request.getParameter("agotados"));
                 rst=stmt.executeQuery(queryProd);
                 %>
                 <table id="tablaProd" border="1" cellspacing="0" cellpadding="5px;">
       
-                   <tr><td style="width:50px;text-align: center;"><b>UPC</b></td><td style="width:100px;"><b>Descripción</b></td><td style="width:75px;text-align: center;"><b>Tipo</b></td><td style="width:60px; text-align: center;"><b>Marca</b></td>
-                       <td style="text-align: center;"><b>Precio</b></td><td style="text-align: center;"><b>Foto</b></td>
+                   <tr><td style="width:40px;text-align: center;"><b>UPC</b></td><td style="width:60px;text-align: center;"><b>Cantidad</b></td><td style="width:100px;"><b>Descripción</b></td><td style="width:60px;text-align: center;"><b>Tipo</b></td><td style="width:60px; text-align: center;"><b>Marca</b></td>
+                       <td style="text-align: center; width:50px;"><b>Costo</b></td><td style="text-align: center; width:50px;"><b>Precio</b></td>
                    </tr>
 	  <%
 			while(rst.next()){  
           %>
-                    <tr><td style="text-align: center;" onclick="pedir(<%=rst.getString("upc")%>)"><%=rst.getString("upc")%></td><td><%=rst.getString("descripcion")%></td><td style="text-align: center;"><%=rst.getString("tipo")%></td><td><%=rst.getString("marca")%></td>
-                       <td><%=rst.getString("precio")%></td><td><%=rst.getString("foto")%></td>
+          <tr><td style="text-align: center;" onclick="pedir(<%=rst.getString("upc")%>)"><%=rst.getString("upc")%></td><td><%=rst.getString("cantidad")%> </td><td><%=rst.getString("descripcion")%></td><td style="text-align: center;"><%=rst.getString("tipo")%></td><td><%=rst.getString("marca")%></td>
+                       <td><%=rst.getString("costo")%></td><td><%=rst.getString("precio")%></td>
                    </tr>
 	  <%    
 			}

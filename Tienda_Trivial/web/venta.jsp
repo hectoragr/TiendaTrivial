@@ -20,6 +20,7 @@
     function pedir(upc){
         var cantidad=prompt("¿Cuántos articulos del producto "+upc,"");
         alert("Quiere "+cantidad+" del producto del UPC: "+upc);
+        window.location = "/Tienda_Trivial/agregarCarrito.jsp?upc="+upc+"&cantidad="+cantidad;
     }
 </script>
 </head>
@@ -48,7 +49,7 @@
 		Statement stmt=null;
 
         try{
-		String url="jdbc:mysql://localhost:8889/tiendatrivial?user=root&password=root";
+		String url="jdbc:mysql://localhost/tiendatrivial?user=root&password=";
 
 		
 		con=DriverManager.getConnection(url);
@@ -162,13 +163,13 @@
                 <table id="tablaProd" border="1" cellspacing="0" cellpadding="5px;">
       
                    <tr><td><b>UPC</b></td><td style="width:100px;"><b>Descripción</b></td><td style="width:75px;"><b>Tipo</b></td><td style="width:60px;"><b>Marca</b></td>
-                       <td><b>Precio</b></td><td><b>Talla</b></td><td><b>Cantidad</b></td>
+                       <td><b>Precio</b></td><td><b>Talla</b></td><td></td>
                    </tr>
 	  <%
 			while(rst.next()){  
           %>
-                    <tr><td onclick="pedir(<%=rst.getString("upc")%>)"><%=rst.getString("upc")%></td><td><%=rst.getString("descripcion")%></td><td style="text-align: center;"><%=rst.getString("tipo")%></td><td><%=rst.getString("marca")%></td>
-                        <td><%=rst.getString("precio")%></td><td><%=rst.getString("talla")%></td><td><%=rst.getString("cantidad")%></td><td><a href="agregarCarrito?upc=<%=rst.getString("upc")%>&cantidad=<%=rst.getString("cantidad")%>">Agregar</a>
+                    <tr><td><%=rst.getString("upc")%></td><td><%=rst.getString("descripcion")%></td><td style="text-align: center;"><%=rst.getString("tipo")%></td><td><%=rst.getString("marca")%></td>
+                        <td><%=rst.getString("precio")%></td><td><%=rst.getString("talla")%></td><td><input type="button" name="agregarcarrito" value="Agregar" onclick="pedir(<%=rst.getString("upc")%>)" /></td>
                    </tr>
 	  <%    
 			}

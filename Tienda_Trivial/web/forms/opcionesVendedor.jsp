@@ -6,9 +6,4 @@
         <input type="button" value="Reporte Inventarios"onclick="load('forms/informeInventario.html','opvend')"/>
     </span>
 </div>
-<div id="productos_query" style="">
-    <h1 style="color:black;">Aquí saldran los productos disponibles, agotados o por agotarse</h1>        
-</div>
-<div id="botonSubmit">
-    <input type="submit" name="crearUsuario" id="crearUsuario" value="Regresar" onclick="window.location.reload()" style="width:auto;" />
-</div>
+<jsp:include page="poragotarse.jsp"/>

@@ -11,7 +11,7 @@
 <title>Tienda trivial - Inicio</title>
 <link rel="stylesheet" type="text/css" href="estilo/agregar.css"/>
 <link rel="stylesheet" type="text/css" href="estilo/style.css"/>
-<link type="text/javascript" src="scripts/general.js">
+<link rel="javascript" type="text/javascript" href="scripts/general.js"/>
 <link rel="shortcut icon" href="estilo/favicon.ico">
 <script type="text/javascript">
 var y=document.getElementById('text-content');
@@ -116,8 +116,223 @@ function load(name, div) {
 		document.getElementById("ano").innerHTML = anhos_txt;
 	}
         
+    function validateForm(){
+    var ret = true    
+    var x=document.forms.agregarProducto.cantidad;
+	if (x.value==null || x.value==""){
+            x.style.backgroundColor="#FFFF99";
+            document.getElementById("lcantidad").className="invalid";
+	ret = false;
+  	}
+	else 
+            if (isNaN(parseInt(x.value))){
+  		x.style.backgroundColor="#FFFF99";
+		document.getElementById("lcantidad").className="invalid";
+		document.getElementById("scantidad").innerHTML="Introducir números";
+            ret = false;
+            }else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("lcantidad").className="valid";
+            document.getElementById("scantidad").innerHTML="";
+             }    
+             
+    var x=document.forms.agregarProducto.upc;
+	if (x.value==null || x.value==""){
+            x.style.backgroundColor="#FFFF99";
+            document.getElementById("lupc").className="invalid";
+	ret = false;
+  	}
+	else 
+            if (isNaN(parseInt(x.value))){
+  		x.style.backgroundColor="#FFFF99";
+		document.getElementById("lupc").className="invalid";
+		document.getElementById("supc").innerHTML="Introducir números";
+            ret = false;
+            }else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("lupc").className="valid";
+            document.getElementById("supc").innerHTML="";
+             }    
+             
+     var x=document.forms.agregarProducto.tipo;
+	if (x.value =="escoger"){
+            document.getElementById("ltipo").className="invalid";
+        ret = false;
+	}else{
+            document.getElementById("ltipo").className="valid";
+         }
+         
+     var x=document.forms.agregarProducto.marca;
+	if (x.value =="escoger"){
+            document.getElementById("lmarca").className="invalid";
+        ret = false;
+	}else{
+            document.getElementById("lmarca").className="valid";
+         }
+        
+     var x=document.forms.agregarProducto.talla;
+	if (x.value =="escoger"){
+            document.getElementById("ltalla").className="invalid";
+        ret = false;
+	}else{
+            document.getElementById("ltalla").className="valid";
+         }
+     var x=document.forms.agregarProducto.descripcion;
+        if (x.value==null || x.value==""){
+            x.style.backgroundColor="#FFFF99";
+            document.getElementById("ldescripcion").className="invalid";
+        ret = false;
+  	}else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("ldescripcion").className="valid";
+          }
+        
+    var x=document.forms.agregarProducto.costo;
+	if (x.value==null || x.value==""){
+            x.style.backgroundColor="#FFFF99";
+            document.getElementById("lcosto").className="invalid";
+	ret = false;
+  	}
+	else 
+            if (isNaN(parseInt(x.value))){
+  		x.style.backgroundColor="#FFFF99";
+		document.getElementById("lcosto").className="invalid";
+		document.getElementById("scosto").innerHTML="Introducir números";
+            ret = false;
+            }else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("lcosto").className="valid";
+            document.getElementById("scosto").innerHTML="";
+             }    
+   return ret;
+   }
+
+    function validateForm2(){
+    var ret = true
     
-	
+    var x=document.forms.agregarCliente.nombre;
+        if (x.value==null || x.value==""){
+            x.style.backgroundColor="#FFFF99";
+            document.getElementById("lnombre").className="invalid";
+        ret = false;
+  	} else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("lnombre").className="valid";
+          }
+        
+    var x=document.forms.agregarCliente.apellido;
+        if (x.value==null || x.value==""){
+            x.style.backgroundColor="#FFFF99";
+            document.getElementById("lapellido").className="invalid";
+        ret = false;
+  	} else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("lapellido").className="valid";
+          }
+        
+    var x=document.forms.agregarCliente.dia;
+	if (x.value =="escoger"){
+            document.getElementById("lfechaNacimiento").className="invalid";
+        ret = false;
+	}else{
+            x.style.backgroundColor="#FFFFFF";           
+            document.getElementById("lfechaNacimiento").className="valid";
+          }
+        
+    var x=document.forms.agregarCliente.correo;
+       if (x.value==null|| x.value==""){
+           x.style.backgroundColor="#FFFF99";
+           document.getElementById("lcorreo").className="invalid";
+       ret = false;
+       }else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("lcorreo").className="valid";
+        }
+            
+     var x=document.forms.agregarCliente.direccion;
+        if (x.value==null || x.value==""){
+            x.style.backgroundColor="#FFFF99";
+            document.getElementById("ldireccion").className="invalid";
+        ret = false;
+  	}else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("ldireccion").className="valid";
+          }
+          
+     var x=document.forms.agregarCliente.colonia;
+        if (x.value==null || x.value==""){
+            x.style.backgroundColor="#FFFF99";
+            document.getElementById("lcolonia").className="invalid";
+        ret = false;
+  	}else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("lcolonia").className="valid";
+          }
+          
+     var x=document.forms.agregarCliente.cp;
+	if (x.value==null || x.value==""){
+            x.style.backgroundColor="#FFFF99";
+            document.getElementById("lcp").className="invalid";
+	ret = false;
+  	}
+	else 
+            if (isNaN(parseInt(x.value))){
+  		x.style.backgroundColor="#FFFF99";
+		document.getElementById("lcp").className="invalid";
+		document.getElementById("scp").innerHTML="Introducir números";
+            ret = false;
+            }else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("lcp").className="valid";
+            document.getElementById("scp").innerHTML="";
+             }    
+             
+    var x=document.forms.agregarCliente.ciudad;
+        if (x.value==null || x.value==""){
+            x.style.backgroundColor="#FFFF99";
+            document.getElementById("lciudad").className="invalid";
+        ret = false;
+  	}else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("lciudad").className="valid";
+         }
+         
+    var x=document.forms.agregarCliente.estado;
+	if (x.value =="escoger"){
+            document.getElementById("lestado").className="invalid";
+        ret = false;
+	}else{
+            document.getElementById("lestado").className="valid";
+         }
+         
+    var x=document.forms.agregarCliente.telefono;
+	if (x.value==null || x.value==""){
+            x.style.backgroundColor="#FFFF99";
+            document.getElementById("ltelefono").className="invalid";
+	ret = false;
+  	}
+	else 
+            if (isNaN(parseInt(x.value))){
+		x.style.backgroundColor="#FFFF99";
+		document.getElementById("ltelefono").className="invalid";
+		document.getElementById("stelefono").innerHTML="Introducir números";
+            ret = false;
+            }
+	else 
+            if (x.value<9999999){
+		x.style.backgroundColor="#FFFF99";
+		document.getElementById("ltelefono").className="invalid";
+		document.getElementById("stelefono").innerHTML="Mínimo 8 digitos";
+            ret = false;
+            }else{
+            x.style.backgroundColor="#FFFFFF";
+            document.getElementById("ltelefono").className="valid";
+            document.getElementById("stelefono").innerHTML="";
+            }
+    
+    return ret;
+    }
+
 </script>
 </head>
 <body>
@@ -134,6 +349,7 @@ function load(name, div) {
         <div id="outter-contenido">
             <div id="contenido">
                 <div id="text-content">
+                    <%@page import="java.sql.*"%>
                     <% 
                     if(session.getAttribute("nivelacceso")!=null){
                         

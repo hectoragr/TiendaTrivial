@@ -49,8 +49,8 @@ public class login extends HttpServlet {
                 session.setAttribute("apellido", usuario.getApellido());
                 session.setAttribute("nivelacceso", usuario.getNivelacceso());
                 session.setAttribute("resetpassword", usuario.getResetpassword());
-                usuario.setIntentosfallidos(0);
-                session.setAttribute("intentosfallidos",0);
+                session.setAttribute("intentosfallidos",null);
+                session.setAttribute("usuariofail", null);
                 break;
             case 2:
                 url = "/index.jsp";

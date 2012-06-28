@@ -49,7 +49,7 @@
 		Statement stmt=null;
 
         try{
-		String url="jdbc:mysql://localhost/tiendatrivial?user=root&password=";
+		String url="jdbc:mysql://localhost:8889/tiendatrivial?user=root&password=root";
 
 		
 		con=DriverManager.getConnection(url);
@@ -112,7 +112,7 @@
                 if(request.getParameter("buscarInventario")!=null){
                 System.out.println("Llego a los parametros");
                 String busUpc,busDes,busMarca,busTipo,busFoto;
-                String queryProd="SELECT upc, cantidad,descripcion,tipo,marca,talla,precio,foto FROM Producto";
+                String queryProd="SELECT * FROM Producto";
                 busDes=busUpc=busMarca=busTipo=busFoto="";
                 int busCantidad,params;
                 busCantidad=params=0;

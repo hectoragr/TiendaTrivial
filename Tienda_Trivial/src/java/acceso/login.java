@@ -44,23 +44,27 @@ public class login extends HttpServlet {
         switch (loginBD.entrar(usuario)) {
             case 1:
                 url = "/bienvenido.jsp";
+                session.setAttribute("idusuario", usuario.getIdusuario());
+                session.setAttribute("nombre", usuario.getNombre());
+                session.setAttribute("apellido", usuario.getApellido());
+                session.setAttribute("nivelacceso", usuario.getNivelacceso());
+                session.setAttribute("resetpassword", usuario.getResetpassword());
+                usuario.setIntentosfallidos(0);
+                session.setAttribute("intentosfallidos",0);
                 break;
             case 2:
-                url = "/strike.jsp";
+                url = "/index.jsp";
+                session.setAttribute("usuariofail",usuario.getIdusuario());
+                session.setAttribute("intentosfallidos",usuario.getIntentosfallidos());
                 break;
             case 3:
-                url = "/block.jsp";
+                url = "/index.jsp";
+                session.setAttribute("usuariofail", usuario.getIdusuario());
+                session.setAttribute("intentosfallidos",usuario.getIntentosfallidos());
                 break;
             default:
                 url = "/error.jsp";
-
         }
-        
-        session.setAttribute("idusuario", usuario.getIdusuario());
-        session.setAttribute("nombre", usuario.getNombre());
-        session.setAttribute("apellido", usuario.getApellido());
-        session.setAttribute("nivelacceso", usuario.getNivelacceso());
-        session.setAttribute("resetpassword", usuario.getResetpassword());
         ServletContext sc = this.getServletContext();
         RequestDispatcher dispatcher = sc.getRequestDispatcher(url);
         dispatcher.forward(request, response);

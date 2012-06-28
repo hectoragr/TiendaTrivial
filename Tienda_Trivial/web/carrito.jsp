@@ -14,7 +14,7 @@
         <script type="text/javascript" src="scripts/modificacion.js"></script>
     </head>
     <body>
-        <h2>Carrito #</h2>
+        <h2>Carrito</h2>
         <table>
             <tr>
                 <th>upc</th>
@@ -51,5 +51,7 @@
             </tr>
         <%}%>
         </table>
+        <input type="button" value="Realizar Compra" onclick="comprar(0)" />
+        <input type="button" value="Cancelar Compra" onclick="comprar(1)" />
     </body>
 </html>

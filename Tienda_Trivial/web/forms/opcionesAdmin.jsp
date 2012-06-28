@@ -6,6 +6,4 @@
         <input type="button" value="Modificar Producto" onclick="load('forms/modificarProducto.jsp','text-content');"/>
     </span>
 </div>
-<div id="productos_query" style="">
-    <h1 style="color:black;">Aquí saldran los productos disponibles, agotados o por agotarse</h1>        
-</div>
+<jsp:include page="poragotarse.jsp"/>

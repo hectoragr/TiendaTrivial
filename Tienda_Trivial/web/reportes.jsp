@@ -47,7 +47,7 @@ function load(name, div) {
         var l_anho=0;
         var l_mes=0;
         function llenarMes(){
-            var htmlMes="<option>- Mes -</option>";
+            var htmlMes="<option value=\"\">- Mes -</option>";
             for(var i=1;i<=12;i++){
                 htmlMes+="<option value="+i+">"+numMes(i)+"</option>";
             }

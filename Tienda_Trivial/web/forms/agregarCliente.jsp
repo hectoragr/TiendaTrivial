@@ -1,7 +1,7 @@
 
     <!--- coment -->
 <h3 style="margin: auto;padding-top:10px;width:140px;">Agregar cliente</h3>
-<form  name="agregarCliente" method="get" action="agregarCliente" onsubmit="return validateForm(this)">
+<form  name="agregarCliente" method="get" action="agregarCliente" onsubmit="return validateForm2(this)">
   <table width="600" border="1" cellspacing="5" cellpadding="1" align="center">
     <tr>
       <td><label for="nombre" id="lnombre"> Nombre <span class="asterisco">*</span>:</label><br/>

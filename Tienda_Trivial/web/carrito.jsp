@@ -50,5 +50,7 @@
             </tr>
         <%}%>
         </table>
-  <!--  </body>
-</html> -->
+        <input type="button" value="Realizar Compra" onclick="comprar(0)" />
+        <input type="button" value="Cancelar Compra" onclick="comprar(1)" />
+    </body>
+</html>

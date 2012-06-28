@@ -35,7 +35,6 @@
     <tr>
       <td><label for="correo" id="lcorreo"> Correo electrónico <span class="asterisco">*</span>:</label><br/>
           <input type="text" name="correo" id="correo" /></td>
-      
       <td><label for="direccion" id="ldireccion">Dirección <span class="asterisco">*</span>:</label><br/>
           <textarea name="direccion" rows="2" cols="20"></textarea></td>
     </tr>

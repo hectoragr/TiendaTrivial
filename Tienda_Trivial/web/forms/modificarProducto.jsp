@@ -1,4 +1,4 @@
-<form id="agregarProducto" name="agregarProducto" method="get" enctype="multipart/form-data" action="agregarProducto" onsubmit="return validateForm(this)">
+<form id="modificarProducto" name="modificarProducto" method="get" enctype="multipart/form-data" action="agregarProducto" onsubmit="return validateform3(this)">
   <table width="500" border="1" cellspacing="5" cellpadding="1" align="center">
     <tr>
     <td><label for="cantidad" id="lcantidad">Cantidad<span class="asterisco">*</span>:</label><br/>

@@ -30,5 +30,19 @@
              rst.close();
              stmt.close();
              con.close();
+           }else if(request.getParameter("l")!=null){
+               System.out.println("Llego l: "+request.getParameter("l"));
+               String queryLog="SELECT intentosfallidos FROM Usuario WHERE idusuario='"+request.getParameter("l")+"'";
+               System.out.println(queryLog);
+               rst=stmt.executeQuery(queryLog);
+                    if(rst.next()){
+                        System.out.println("Intentos: "+rst.getString("intentosfallidos"));
+                        switch (Integer.parseInt(rst.getString("intentosfallidos"))){
+                            case 0:%> <%=" "%><% break;
+                            case 1:%> <%="Error al intentar conectarse, la cuenta se bloquea al tercer intento"%><% break;
+                            case 2:%> <%="Cuenta por bloquearse al siguiente intento fallido"%><% break;
+                            default:%> <%="Cuenta bloqueada por exceso de intentos, contacta administrador"%><% break;
+                        }
+                    }
            }
 	  %>

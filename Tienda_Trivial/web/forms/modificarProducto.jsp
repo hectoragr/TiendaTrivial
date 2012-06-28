@@ -22,7 +22,7 @@
     <td>&nbsp;</td>
     </tr>
     <tr>
-      <td colspan="3" align="center"><input style="width:auto;" type="submit" name="agregarArticulo" id="sagregarArticulo" value="Modificar artículo" /></td>
+      <td colspan="3" align="center"><input style="width:auto;" type="submit" name="modificarArticulo" id="modificarArticulo" value="Modificar artículo" /></td>
     </tr>
   </table>
 </form>

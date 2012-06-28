@@ -72,6 +72,28 @@
     function contra(enterlength){
     document.crearUsuario.contrasena.value=generaContrasena(enterlength);
     }
+    
+    function checkUser(str){
+        if (str==""){
+        document.getElementById("sid").innerHTML="";
+        document.getElementById("lid").className="";
+        document.getElementById("id").style.backgroundColor="#FFFFFF";
+        return;
+        } 
+        if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+        }else{// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        
+        xmlhttp.onreadystatechange=function(){ 
+            if (xmlhttp.readyState==4 && xmlhttp.status==200){
+                document.getElementById("sid").innerHTML=xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET","forms/userCheck.jsp?q="+str,true);
+        xmlhttp.send();
+    }
 
 </script>
 </head>
@@ -104,7 +126,7 @@
                             
                         <span id="leftSpan"><div>
                                 <label for="id" id="lid">User id<label class="asterisco">*</label>:</label><br/>
-                                <input type="text" name="id" id="id" size="17" style="width:auto;" /><br/>
+                                <input type="text" name="id" id="id" size="17" style="width:auto;" onChange="checkUser(this.value)" /><br/>
                                 <label id="sid" class="invalid"></label>
                               </div>
                             <div>

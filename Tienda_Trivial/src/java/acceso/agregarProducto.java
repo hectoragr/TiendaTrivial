@@ -34,18 +34,38 @@ public class agregarProducto extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException, SQLException {
-        double talla=0.0;
-        String upc = request.getParameter("upc");
-        String descripcion = request.getParameter("descripcion");
-        String marca = request.getParameter("marca");
-        System.out.println(request.getParameter("talla"));
-        talla = Double.parseDouble(request.getParameter("talla"));
-        String tipo = request.getParameter("tipo");
-        double costo = Double.parseDouble(request.getParameter("costo"));
-        double precio = Double.parseDouble(request.getParameter("precio"));
-        int cantidad = Integer.parseInt(request.getParameter("cantidad"));
-        String imagen = request.getParameter("imagen");
-        System.out.println("talla:"+talla);
+        double talla, costo, precio;
+        talla=costo=precio=0.0;
+        String upc,descripcion,marca,tipo,imagen;
+        upc=descripcion=marca=tipo=imagen="";
+        int cantidad=0;
+        if(request.getParameter("upc")!=null){
+            upc = request.getParameter("upc");
+        }
+        if(request.getParameter("descripcion")!=null){
+            descripcion = request.getParameter("descripcion");
+        }
+        if(request.getParameter("marca")!=null){
+            marca = request.getParameter("marca");
+        }
+        if(request.getParameter("talla")!=null){
+            talla = Double.parseDouble(request.getParameter("talla"));
+        }
+        if(request.getParameter("tipo")!=null){
+            tipo = request.getParameter("tipo");
+        }
+        if(request.getParameter("costo")!=null){
+            costo = Double.parseDouble(request.getParameter("costo"));
+        }
+        if(request.getParameter("precio")!=null){
+            precio = Double.parseDouble(request.getParameter("precio"));
+        }
+        if(request.getParameter("cantidad")!=null){
+            cantidad = Integer.parseInt(request.getParameter("cantidad"));
+        }
+        if(request.getParameter("imagen")!=null){
+            imagen = request.getParameter("imagen");
+        }
         
         Producto producto = new Producto(upc, cantidad, tipo, marca, talla, descripcion, costo,
                                       precio, imagen);//REEMPLAZAR CON VARIABLES

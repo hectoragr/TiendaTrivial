@@ -17,7 +17,6 @@
             String upc = request.getParameter("upc");
             int cantidad = Integer.parseInt(request.getParameter("cantidad"));
             String idusuario = (String) session.getAttribute("idusuario");
-            System.out.println(idusuario);
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/tiendatrivial", "root", "");
             Statement stmt = con.createStatement();
             String params = "SELECT * FROM Carrito WHERE idusuario='" + idusuario + "'";
@@ -33,6 +32,7 @@
                             + (cantidadexistente + cantidad) + " WHERE idcarrito='" + idcarrito + "' AND upc='" + upc + "'";
                     if (stmt.executeUpdate(params) == 1) {%>
         <h1>Actualizaci&oacute;n exitosa</h1>
+        <jsp:include page="carrito.jsp"/>
         <%                    } else {%>
         <h1>Error</h1>
         <%                            }
@@ -40,6 +40,7 @@
             params = "INSERT INTO Carrito VALUES ('" + idcarrito + "', '" + upc + "', '" + idusuario + "', " + cantidad + ")";
                             if (stmt.executeUpdate(params) == 1) {%>
         <h1>Inserci&oacute;n exitosa</h1>
+        <jsp:include page="carrito.jsp"/>
         <%                    } else {%>
         <h1>Error</h1>
         <%                                }
@@ -54,6 +55,7 @@
             params = "INSERT INTO Carrito VALUES ('" + idcarrito + "', '" + upc + "', '" + idusuario + "', " + cantidad + ")";
                             if (stmt.executeUpdate(params) == 1) {%>
         <h1>Inserci&oacute;n exitosa</h1>
+        <jsp:include page="carrito.jsp"/>
         <%         } else {%>
         <h1>Error</h1>
         <%                 }
